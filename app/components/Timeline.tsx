@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface TimelineEvent {
+export interface TimelineEvent {
   date: string;
   title: string;
   description: string;
