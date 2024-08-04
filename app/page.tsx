@@ -9,37 +9,40 @@ const navigation = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
-      <nav className="my-16 animate-fade-in">
+    <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-purple-900 via-pink-500 to-orange-500">
+      <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-green-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
+      <nav className="my-16 animate-fade-in z-10">
         <ul className="flex items-center justify-center gap-4">
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
+              className="text-sm duration-500 text-white hover:text-white"
             >
               {item.name}
             </Link>
           ))}
         </ul>
       </nav>
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+      <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-white/0 via-white/50 to-white/0" />
       <Particles
-        className="absolute inset-0 -z-10 animate-fade-in"
-        quantity={100}
+        className="absolute inset-0 z-0 animate-fade-in"
+        quantity={500}
+        staticity={10}
       />
-      <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-        chronark
+      <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-100 bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap">
+        Jay
       </h1>
-
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+      <div className="absolute inset-0 z-0 bg-[url('/path/to/cool-pattern.png')] opacity-10 animate-spin-slow"></div>
+      <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-white/0 via-white/50 to-white/0" />
       <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-500 ">
+        <h2 className="text-sm text-white ">
           I'm building{" "}
           <Link
             target="_blank"
             href="https://unkey.dev"
-            className="underline duration-500 hover:text-zinc-300"
+            className="underline duration-500 hover:text-white"
           >
             unkey.dev
           </Link> to solve API authentication and authorization for developers.
@@ -47,5 +50,4 @@ export default function Home() {
       </div>
     </div>
   );
-
 }
