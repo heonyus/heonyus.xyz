@@ -102,10 +102,28 @@ module.exports = {
 					},
 				},
 			},
+			colors: {
+				'neon-blue': '#00ffff',
+				'neon-pink': '#ff00ff',
+				'neon-green': '#00ff00',
+				'neon-yellow': '#ffff00',
+				'neon-purple': '#bf00ff',
+			},
+			textShadow: {
+				'neon': '0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor',
+			},
 		},
 	},
 	plugins: [
 		require("@tailwindcss/typography"),
 		require("tailwindcss-debug-screens"),
+		function ({ addUtilities }) {
+			const newUtilities = {
+				'.text-shadow-neon': {
+					textShadow: '0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor',
+				},
+			}
+			addUtilities(newUtilities)
+		}
 	],
 };

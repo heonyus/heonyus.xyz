@@ -37,7 +37,7 @@ export default function Home() {
   }, [animationComplete]);
 
   return (
-    <div ref={scrollRef} className="relative w-screen overflow-y-auto bg-gradient-to-tl from-purple-900 via-pink-500 to-orange-500">
+    <div ref={scrollRef} className="relative w-screen min-h-screen overflow-y-auto bg-gradient-to-tl from-purple-900 via-pink-500 to-orange-500">
       <div className="sticky top-0 flex flex-col items-center justify-center h-screen overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-green-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
@@ -99,7 +99,9 @@ export default function Home() {
           </motion.div>
         )}
       </div>
-      <Resume />
+      <div className="relative z-10">
+        <Resume />
+      </div>
     </div>
   );
 }
