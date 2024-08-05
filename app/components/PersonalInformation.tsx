@@ -12,8 +12,11 @@ const PersonalInformation: React.FC = () => {
 
   return (
     <>
-      <div className="flex flex-col sm:flex-row items-stretch">
-        <div className="mb-4 sm:mb-0 sm:mr-6 flex-shrink-0 w-1/4">
+      <h2 className="mb-4 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold whitespace-normal">
+        Personal Information
+      </h2>
+      <div className="flex flex-col items-center sm:flex-row sm:items-stretch">
+        <div className="mb-4 sm:mb-0 sm:mr-6 w-2/3 sm:w-1/3 max-w-xs">
           <div className="h-full p-1 rounded-lg bg-gradient-to-r from-pink-300/30 via-purple-300/30 to-cyan-300/30 backdrop-filter backdrop-blur-sm shadow-lg shadow-purple-500/30">
             <img
               src="/images/profile.jpg"
@@ -23,7 +26,7 @@ const PersonalInformation: React.FC = () => {
             />
           </div>
         </div>
-        <div className="flex-grow grid grid-cols-1 sm:grid-cols-2 gap-4 content-between">
+        <div className="w-full sm:flex-grow grid grid-cols-1 gap-4 content-between">
           {personalInfo.map((item, index) => (
             <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 hover:bg-white/20 transition-all duration-300 flex flex-col justify-center">
               <p className="font-bold text-pink-300">{item.label}</p>
