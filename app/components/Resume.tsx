@@ -6,6 +6,12 @@ import { AwardGallery } from './AwardGallery';
 import { ProjectShowcase } from './ProjectShowcase';
 import { SkillChart } from './SkillChart';
 
+interface TimelineEvent {
+  date: string;
+  title: string;
+  description: string;
+}
+
 interface ResumeSectionProps {
   children: ReactNode;
   delay?: number;
@@ -142,21 +148,31 @@ const Resume: React.FC = () => {
       <div className="max-w-4xl mx-auto grid gap-8">
         <ResumeSection delay={0.2}>
           <div className="flex items-start">
-            <div className="flex-grow">
-              <h2 className="text-3xl font-bold mb-4 text-blue-300">Personal Information</h2>
-              <p>Name: Jaeheon Jeong</p>
-              <p>Education: Myongji University, Industrial and Management Engineering</p>
-              <p>GPA: 3.89 / 4.5</p>
-              <p>Date of Birth: 1999.01.19</p>
-              <p>Current Affiliation: Market Designers Co., Ltd.</p>
-              <p>Position: AI Researcher</p>
-            </div>
-            <div className="ml-6 flex-shrink-0">
+            <div className="mr-6 flex-shrink-0">
               <img
                 src="/images/profile.jpg"
                 alt="Jaeheon Jeong"
-                className="w-40 h-60 rounded-full object-cover"
+                className="w-50 h-80 object-cover rounded-lg"
               />
+            </div>
+            <div className="flex-grow grid grid-cols-2 gap-4">
+              <h2 className="text-3xl font-bold mb-4 text-blue-300 col-span-2">개인 정보</h2>
+              <div>
+                <p className="font-semibold">이름:</p>
+                <p className="font-semibold">생년월일:</p>
+                <p className="font-semibold">학력:</p>
+                <p className="font-semibold">학점:</p>
+                <p className="font-semibold">소속:</p>
+                <p className="font-semibold">직책:</p>
+              </div>
+              <div>
+                <p>Jaeheon Jeong</p>
+                <p>1999.01.19</p>
+                <p>명지대학교 산업경영공학과</p>
+                <p>3.89 / 4.5</p>
+                <p>Market Designers Co., Ltd.</p>
+                <p>AI 연구원</p>
+              </div>
             </div>
           </div>
         </ResumeSection>
