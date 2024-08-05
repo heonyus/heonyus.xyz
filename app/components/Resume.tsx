@@ -19,7 +19,7 @@ interface ResumeSectionProps {
 
 const ResumeSection = ({ children, delay = 0 }: ResumeSectionProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-200px" });
   const controls = useAnimation();
 
   useEffect(() => {
@@ -27,22 +27,6 @@ const ResumeSection = ({ children, delay = 0 }: ResumeSectionProps) => {
       controls.start("visible");
     }
   }, [isInView, controls]);
-
-  const [{ rotateX, rotateY }, set] = useSpring(() => ({ rotateX: 0, rotateY: 0 }));
-
-  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const box = card.getBoundingClientRect();
-    const x = e.clientX - box.left;
-    const y = e.clientY - box.top;
-    const centerX = box.width / 2;
-    const centerY = box.height / 2;
-    const rotateX = (y - centerY) / 20;
-    const rotateY = (centerX - x) / 20;
-    set({ rotateX, rotateY });
-  };
-
-  const onMouseLeave = () => set({ rotateX: 0, rotateY: 0 });
 
   return (
     <motion.div
@@ -54,18 +38,9 @@ const ResumeSection = ({ children, delay = 0 }: ResumeSectionProps) => {
         visible: { opacity: 1, y: 0 },
       }}
       transition={{ duration: 0.5, delay }}
+      className="bg-white/10 backdrop-blur-lg rounded-lg p-6 shadow-lg hover:shadow-2xl transition-all duration-200 hover:bg-white/20"
     >
-      <animated.div
-        onMouseMove={onMouseMove}
-        onMouseLeave={onMouseLeave}
-        style={{
-          transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-          transition: 'transform 0.1s ease',
-        }}
-        className="bg-white/10 backdrop-blur-lg rounded-lg p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
-      >
-        {children}
-      </animated.div>
+      {children}
     </motion.div>
   );
 };
@@ -144,58 +119,63 @@ const Resume: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen text-white p-8">
-      <div className="max-w-4xl mx-auto grid gap-8">
+    <div className="min-h-screen p-4 sm:p-8">
+      <div className="max-w-4xl mx-auto grid gap-6 sm:gap-8">
         <ResumeSection delay={0.2}>
-          <div className="flex items-start">
-            <div className="mr-6 flex-shrink-0">
-              <img
-                src="/images/profile.jpg"
-                alt="Jaeheon Jeong"
-                className="w-50 h-80 object-cover rounded-lg"
-              />
-            </div>
-            <div className="flex-grow grid grid-cols-2 gap-4">
-              <h2 className="text-3xl font-bold mb-4 text-blue-300 col-span-2">개인 정보</h2>
-              <div>
-                <p className="font-semibold">이름:</p>
-                <p className="font-semibold">생년월일:</p>
-                <p className="font-semibold">학력:</p>
-                <p className="font-semibold">학점:</p>
-                <p className="font-semibold">소속:</p>
-                <p className="font-semibold">직책:</p>
+          <div className="flex flex-col sm:flex-row items-center sm:items-start">
+            <div className="mb-4 sm:mb-0 sm:mr-6 flex-shrink-0">
+              <div className="p-1 rounded-lg bg-gradient-to-r from-pink-300/30 via-purple-300/30 to-cyan-300/30 backdrop-filter backdrop-blur-sm shadow-lg shadow-purple-500/30">
+                <img
+                  src="/images/profile.jpg"
+                  alt="Jaeheon Jeong" 
+                  className="w-48 h-48 sm:w-56 sm:h-80 object-cover rounded-lg"
+                />
               </div>
-              <div>
-                <p>Jaeheon Jeong</p>
-                <p>1999.01.19</p>
-                <p>명지대학교 산업경영공학과</p>
-                <p>3.89 / 4.5</p>
-                <p>Market Designers Co., Ltd.</p>
-                <p>AI 연구원</p>
+            </div>
+            <div className="flex-grow">
+              <h2 className="mb-4 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold">
+                Personal Information
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { label: "Name", value: "Jaeheon Jeong" },
+                  { label: "Date of Birth", value: "1999.01.19" },
+                  { label: "Education", value: "Myongji University, Industrial and Management Engineering" },
+                  { label: "GPA", value: "3.89 / 4.5" },
+                  { label: "Affiliation", value: "Market Designers Co., Ltd." },
+                  { label: "Position", value: "AI Researcher" },
+                ].map((item, index) => (
+                  <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 hover:bg-white/20 transition-all duration-300">
+                    <p className="font-bold text-pink-300">{item.label}</p>
+                    <p className="text-white">{item.value}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </ResumeSection>
 
-        <ResumeSection delay={0.4}>
-          <h2 className="text-3xl font-bold mb-4 text-green-300">Time Line</h2>
+
+          <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
+            Time Line
+          </h2>
           <Timeline events={timelineEvents} />
-        </ResumeSection>
 
-        <ResumeSection delay={0.6}>
-          <h2 className="text-3xl font-bold mb-4 text-pink-300">Awards</h2>
-          <AwardGallery awards={awards} />
-        </ResumeSection>
-
-        <ResumeSection delay={0.8}>
-          <h2 className="text-3xl font-bold mb-4 text-yellow-300">Projects</h2>
+          <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
+          Projects
+          </h2>
           <ProjectShowcase projects={projects} />
-        </ResumeSection>
 
-        <ResumeSection delay={1.0}>
-          <h2 className="text-3xl font-bold mb-4 text-purple-300">Skills</h2>
+          <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
+            Awards
+          </h2>
+          <AwardGallery awards={awards} />
+        
+
+          <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
+            Skills
+          </h2>
           <SkillChart skills={skills} />
-        </ResumeSection>
       </div>
     </div>
   );

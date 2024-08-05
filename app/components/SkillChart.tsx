@@ -16,29 +16,31 @@ export const SkillChart: React.FC<SkillChartProps> = ({ skills }) => {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl"
+      className="grid grid-cols-1 sm:grid-cols-2 gap-4"
     >
-      <h3 className="text-2xl font-bold mb-4 text-white">Skills</h3>
-      <div className="space-y-4">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-white/5 rounded-lg p-4 transition-all duration-300 hover:bg-white/20"
-          >
-            <h4 className="text-lg font-bold mb-2 text-white">{skill.name}</h4>
-            <div className="w-full bg-white/20 rounded-full h-2.5">
+      {skills.map((skill, index) => (
+        <motion.div
+          key={index}
+          className="bg-white/10 backdrop-blur-sm rounded-lg p-4 hover:bg-white/20 transition-all duration-300"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <h3 className="text-lg font-bold mb-2 text-white">{skill.name}</h3>
+          <div className="flex items-center space-x-2">
+            {[20, 40, 60, 80, 100].map((level) => (
               <motion.div
-                className="bg-white h-2.5 rounded-full"
-                initial={{ width: 0 }}
-                animate={{ width: `${skill.level}%` }}
-                transition={{ duration: 1, delay: index * 0.1 }}
-              ></motion.div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+                key={level}
+                className={`w-4 h-4 rounded-full ${
+                  skill.level >= level ? 'bg-purple-300' : 'bg-white/20'
+                }`}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.3, delay: index * 0.1 + (level / 100) * 0.2 }}
+              />
+            ))}
+          </div>
+        </motion.div>
+      ))}
     </motion.div>
   );
 };
