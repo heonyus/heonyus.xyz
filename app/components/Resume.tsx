@@ -5,6 +5,7 @@ import { Timeline } from './Timeline';
 import { AwardGallery } from './AwardGallery';
 import { ProjectShowcase } from './ProjectShowcase';
 import { SkillChart } from './SkillChart';
+import PersonalInformation from './PersonalInformation';
 
 interface TimelineEvent {
   date: string;
@@ -121,39 +122,12 @@ const Resume: React.FC = () => {
   return (
     <div className="min-h-screen p-4 sm:p-8">
       <div className="max-w-4xl mx-auto grid gap-6 sm:gap-8">
-        <ResumeSection delay={0.2}>
-          <h2 className="mb-4 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold whitespace-normal">
+
+          <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
             Personal Information
           </h2>
-          <div className="flex flex-col sm:flex-row items-center sm:items-start">
-            <div className="mb-4 sm:mb-0 sm:mr-6 flex-shrink-0">
-              <div className="p-1 rounded-lg bg-gradient-to-r from-pink-300/30 via-purple-300/30 to-cyan-300/30 backdrop-filter backdrop-blur-sm shadow-lg shadow-purple-500/30">
-                <img
-                  src="/images/profile.jpg"
-                  alt="Jaeheon Jeong" 
-                  className="w-48 h-48 sm:w-56 sm:h-56 object-cover rounded-lg"
-                />
-              </div>
-            </div>
-            <div className="flex-grow w-full">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  { label: "Name", value: "Jaeheon Jeong" },
-                  { label: "Date of Birth", value: "1999.01.19" },
-                  { label: "Education", value: "Myongji University, Industrial and Management Engineering" },
-                  { label: "GPA", value: "3.89 / 4.5" },
-                  { label: "Affiliation", value: "Market Designers Co., Ltd." },
-                  { label: "Position", value: "AI Researcher" },
-                ].map((item, index) => (
-                  <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 hover:bg-white/20 transition-all duration-300">
-                    <p className="font-bold text-pink-300">{item.label}</p>
-                    <p className="text-white">{item.value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </ResumeSection>
+          <PersonalInformation />
+
 
 
           <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
