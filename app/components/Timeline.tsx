@@ -47,7 +47,7 @@ export const Timeline: React.FC<TimelineProps> = ({ events }) => {
                 {event.title}
               </motion.h3>
               <p className="text-sm text-gray-300 mb-2">{event.date}</p>
-              <p className="p-1 rounded-lg bg-gradient-to-r from-pink-300/30 via-purple-300/30 to-cyan-300/30 backdrop-filter backdrop-blur-sm shadow-lg shadow-purple-500/30">{event.description}</p>
+              <p className="text-sm text-gray-100 mb-2">{event.description}</p>
             </motion.div>
           </motion.div>
         ))}

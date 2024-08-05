@@ -131,7 +131,7 @@ const Resume: React.FC = () => {
                 <img
                   src="/images/profile.jpg"
                   alt="Jaeheon Jeong" 
-                  className="w-48 h-48 sm:w-56 sm:h-80 object-cover rounded-lg"
+                  className="w-48 h-48 sm:w-56 sm:h-56 object-cover rounded-lg"
                 />
               </div>
             </div>
