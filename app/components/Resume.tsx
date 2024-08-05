@@ -122,7 +122,7 @@ const Resume: React.FC = () => {
     <div className="min-h-screen p-4 sm:p-8">
       <div className="max-w-4xl mx-auto grid gap-6 sm:gap-8">
         <ResumeSection delay={0.2}>
-        <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
+          <h2 className="mb-4 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold whitespace-normal">
             Personal Information
           </h2>
           <div className="flex flex-col sm:flex-row items-center sm:items-start">
@@ -135,7 +135,7 @@ const Resume: React.FC = () => {
                 />
               </div>
             </div>
-            <div className="flex-grow">
+            <div className="flex-grow w-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { label: "Name", value: "Jaeheon Jeong" },
