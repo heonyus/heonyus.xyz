@@ -41,8 +41,8 @@ export const Timeline: React.FC<TimelineProps> = ({ events }) => {
               />
               
               <motion.h3 
-                className="text-lg font-bold mb-1 text-white"
-                whileHover={{ color: "#4fd1c5" }}
+                className="text-lg font-bold mb-1 text-purple-200"
+                whileHover={{ color: "#A7EDB8" }}
               >
                 {event.title}
               </motion.h3>

@@ -5,10 +5,10 @@ const PersonalInformation: React.FC = () => {
   const personalInfo = [
     { label: "Name", value: "Jaeheon Jeong" },
     { label: "Date of Birth", value: "1999.01.19" },
-    { label: "Education", value: "Myongji University, Industrial and Management Engineering" },
-    { label: "GPA", value: "3.89 / 4.5" },
-    { label: "Affiliation", value: "Market Designers Co., Ltd." },
-    { label: "Position", value: "AI Researcher" }
+    { label: "Education", value: "MJU, IM Engineering" },
+    { label: "Position", value: "AI Researcher" },
+    { label: "Location", value: "Seoul, Korea" },
+    { label: "Interests", value: "AI, DS, MLOps" },
   ];
 
   return (
@@ -44,7 +44,7 @@ const PersonalInformation: React.FC = () => {
                 transition={{ delay: 0.1 * index, duration: 0.3 }}
                 className="flex flex-col"
               >
-                <p className="text-sm font-medium text-purple-300">{item.label}</p>
+                <p className="text-sm font-medium text-purple-200">{item.label}</p>
                 <p className="text-lg font-semibold text-white">{item.value}</p>
               </motion.div>
             ))}

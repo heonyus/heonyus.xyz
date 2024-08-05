@@ -14,6 +14,7 @@ const navigation = [
 export default function Home() {
   const [animationComplete, setAnimationComplete] = useState(false);
   const [showScrollArrow, setShowScrollArrow] = useState(false);
+  const [showTopButton, setShowTopButton] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,11 +31,23 @@ export default function Home() {
       if (!animationComplete) {
         window.scrollTo(0, 0);
       }
+      if (window.pageYOffset > 300) {
+        setShowTopButton(true);
+      } else {
+        setShowTopButton(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [animationComplete]);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div ref={scrollRef} className="relative w-screen min-h-screen overflow-y-auto bg-gradient-to-tl from-purple-900 via-pink-500 to-orange-500">
@@ -47,7 +60,7 @@ export default function Home() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm duration-500 text-white hover:text-white"
+                className="text-sm duration-500 text-white hover:text-purple-200"
               >
                 {item.name}
               </Link>
@@ -71,7 +84,7 @@ export default function Home() {
             <Link
               target="_blank"
               href="https://github.com/sparkerhoney"
-              className="underline duration-500 hover:text-white"
+              className="underline duration-500 hover:text-purple-200"
             >
               AI
             </Link> for the essence of humanity and creating a more human-like something.
@@ -102,6 +115,19 @@ export default function Home() {
       <div className="relative z-10">
         <Resume />
       </div>
+
+      {showTopButton && (
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition-colors duration-300 z-50"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </motion.button>
+      )}
     </div>
   );
 }

@@ -25,7 +25,7 @@ export const SkillChart: React.FC<SkillChartProps> = ({ skills }) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <h3 className="text-lg font-bold mb-2 text-white">{skill.name}</h3>
+          <h3 className="text-lg font-bold mb-2 text-purple-200">{skill.name}</h3>
           <div className="flex items-center space-x-2">
             {[20, 40, 60, 80, 100].map((level) => (
               <motion.div

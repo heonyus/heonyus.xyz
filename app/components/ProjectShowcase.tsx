@@ -28,15 +28,15 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) =>
             whileTap={{ scale: 0.95 }}
           >
             <motion.h3 
-              className="text-xl font-bold mb-2 text-white"
-              whileHover={{ color: "#4fd1c5" }}
+              className="text-xl font-bold mb-2 text-purple-200"
+              whileHover={{ color: "#A7EDB8" }}
             >
               {project.title}
             </motion.h3>
             <p className="text-white/80 mb-4">{project.description}</p>
             <div className="flex flex-wrap gap-2 mb-4">
               {project.technologies.map((tech, techIndex) => (
-                <span key={techIndex} className="bg-white/20 text-white text-xs px-2 py-1 rounded">
+                <span key={techIndex} className="bg-white/20 text-purple-200 text-xs px-2 py-1 rounded">
                   {tech}
                 </span>
               ))}
@@ -46,7 +46,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) =>
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:underline"
-              whileHover={{ color: "#4fd1c5" }}
+              whileHover={{ color: "#A7EDB8" }}
             >
               View Project
             </motion.a>

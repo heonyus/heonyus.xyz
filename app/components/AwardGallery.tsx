@@ -35,8 +35,8 @@ export const AwardGallery: React.FC<AwardGalleryProps> = ({ awards }) => {
             />
             <div>
               <motion.h3 
-                className="text-lg font-bold mb-1 text-white"
-                whileHover={{ color: "#4fd1c5" }}
+                className="text-lg font-bold mb-1 text-purple-200"
+                whileHover={{ color: "#A7EDB8" }}
               >
                 {award.title}
               </motion.h3>
