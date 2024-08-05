@@ -60,7 +60,7 @@ export default function Home() {
           quantity={500}
           staticity={5} 
         />
-        <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-100 bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap">
+        <h1 className="py-3.5 px-0.5 z-10 text-5xl text-transparent duration-100 bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap">
           Jay
         </h1>
         <div className="absolute inset-0 z-0 bg-[url('/path/to/cool-pattern.png')] opacity-10 animate-spin-slow"></div>

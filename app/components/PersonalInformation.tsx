@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const PersonalInformation: React.FC = () => {
   const personalInfo = [
@@ -7,35 +8,50 @@ const PersonalInformation: React.FC = () => {
     { label: "Education", value: "Myongji University, Industrial and Management Engineering" },
     { label: "GPA", value: "3.89 / 4.5" },
     { label: "Affiliation", value: "Market Designers Co., Ltd." },
-    { label: "Position", value: "AI Researcher" },
+    { label: "Position", value: "AI Researcher" }
   ];
 
   return (
-    <>
-      <h2 className="mb-4 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold whitespace-normal">
-        Personal Information
-      </h2>
-      <div className="flex flex-col items-center sm:flex-row sm:items-stretch">
-        <div className="mb-4 sm:mb-0 sm:mr-6 w-2/3 sm:w-1/3 max-w-xs">
-          <div className="h-full p-1 rounded-lg bg-gradient-to-r from-pink-300/30 via-purple-300/30 to-cyan-300/30 backdrop-filter backdrop-blur-sm shadow-lg shadow-purple-500/30">
-            <img
-              src="/images/profile.jpg"
-              alt="Jaeheon Jeong" 
-              className="w-full h-full object-cover rounded-lg"
-              style={{ aspectRatio: '3/4' }}
-            />
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="flex flex-col items-center space-y-8"
+    >
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        className="w-60 h-80 rounded-full overflow-hidden bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 p-1"
+      >
+        <img
+          src="/images/profile.jpg"
+          alt="정재헌"
+          className="w-full h-full object-cover rounded-full"
+        />
+      </motion.div>
+      <div className="w-full max-w-2xl">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="bg-white/5 backdrop-blur-sm rounded-xl p-6 shadow-lg"
+        >
+          <div className="grid grid-cols-2 gap-4">
+            {personalInfo.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index, duration: 0.3 }}
+                className="flex flex-col"
+              >
+                <p className="text-sm font-medium text-purple-300">{item.label}</p>
+                <p className="text-lg font-semibold text-white">{item.value}</p>
+              </motion.div>
+            ))}
           </div>
-        </div>
-        <div className="w-full sm:flex-grow grid grid-cols-1 gap-4 content-between">
-          {personalInfo.map((item, index) => (
-            <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 hover:bg-white/20 transition-all duration-300 flex flex-col justify-center">
-              <p className="font-bold text-pink-300">{item.label}</p>
-              <p className="text-white">{item.value}</p>
-            </div>
-          ))}
-        </div>
+        </motion.div>
       </div>
-    </>
+    </motion.div>
   );
 };
 
