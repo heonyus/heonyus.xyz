@@ -13,20 +13,27 @@ interface AwardGalleryProps {
 
 export const AwardGallery: React.FC<AwardGalleryProps> = ({ awards }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {awards.map((award, index) => (
-        <motion.div
-          key={index}
-          className="bg-gray-800 rounded-lg p-6 shadow-lg"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-        >
-          <h3 className="text-xl font-bold mb-2 text-neon-pink">{award.title}</h3>
-          <p className="text-sm text-gray-400 mb-4">{award.date}</p>
-          <p className="text-gray-300">{award.description}</p>
-        </motion.div>
-      ))}
-    </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl"
+    >
+      <h3 className="text-2xl font-bold mb-4 text-white">Awards</h3>
+      <div className="space-y-4">
+        {awards.map((award, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-white/5 rounded-lg p-4 shadow-lg transition-all duration-300 hover:bg-white/20"
+          >
+            <h4 className="text-lg font-bold mb-1 text-white">{award.title}</h4>
+            <p className="text-sm text-white/80 mb-2">{award.date}</p>
+            <p className="text-sm text-white/60">{award.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
   );
 };

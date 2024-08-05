@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, ReactNode } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { useSpring, animated } from 'react-spring';
-import { Timeline, TimelineEvent } from './Timeline';
+import { Timeline } from './Timeline';
 import { AwardGallery } from './AwardGallery';
 import { ProjectShowcase } from './ProjectShowcase';
 import { SkillChart } from './SkillChart';
@@ -64,53 +64,53 @@ const ResumeSection = ({ children, delay = 0 }: ResumeSectionProps) => {
   );
 };
 
-const Resume = () => {
+const Resume: React.FC = () => {
   const timelineEvents: TimelineEvent[] = [
     {
       date: "2018.02-2019.08",
-      title: "동아방송예술대 연기전공",
-      description: "입학 및 자퇴"
+      title: "Dong-Ah Institute of Media and Arts",
+      description: "Enrolled and withdrew from Acting major"
     },
     {
       date: "2020.03-2021.10",
-      title: "서울지방경찰청 제3기동단",
-      description: "입대 및 전역"
+      title: "Seoul Metropolitan Police Agency",
+      description: "Enlisted and discharged from 3rd Mobile Unit"
     },
     {
       date: "2022.02-2024.06",
-      title: "명지대 산업경영공학과",
-      description: "편입학 및 졸업(예정)"
+      title: "Myongji University",
+      description: "Transferred to Industrial and Management Engineering (Expected graduation)"
     },
     {
       date: "2022.09-2023.08",
-      title: "명지대 산업경영공학과 Computational Data Science Lab",
-      description: "학부연구생"
+      title: "Computational Data Science Lab",
+      description: "Undergraduate researcher at Myongji University"
     },
     {
       date: "2023.02-2024.02",
-      title: "명지대 산업경영공학과 Data Science 동아리 'FoM'",
-      description: "동아리 개설 및 회장"
+      title: "Data Science Club 'FoM'",
+      description: "Founder and President at Myongji University"
     },
     {
       date: "2023.09-2024.02",
-      title: "(주)마켓디자이너스 - 튜터링 AI Innovation Team",
-      description: "AI Researcher 및 Prompt Engineer"
+      title: "Market Designers - Tutoring",
+      description: "AI Researcher and Prompt Engineer"
     },
     {
       date: "2024.03-",
       title: "Lingora AI Innovation Team",
-      description: "AI Researcher 및 MLOps Engineer"
+      description: "AI Researcher and MLOps Engineer"
     }
   ];
 
   const awards = [
-    { title: "명지대 배움품앗이 교육훈련 장학금", date: "2022.06", description: "" },
-    { title: "명지대 산업경영공학과 Data Analytics 교내 Competition 우수상", date: "2022.12", description: "" },
-    { title: "명지대 산업경영공학과 Data Analytics 조교 사회진출 장학금", date: "2022.12", description: "" },
-    { title: "명지대 산업경영공학과 캡스톤 디자인 졸업작품 대상", date: "2023.06", description: "" },
-    { title: "명지대 산업경영공학과 Data Science 동아리 'Fom' Step 2 수료", date: "2023.08", description: "" },
-    { title: "국회 공공데이터 경진대회 본선 진출", date: "2023.12", description: "심사중" },
-    { title: "명지대 교내 현장실습후기 Competition 대상", date: "2024.01", description: "" }
+    { title: "Myongji University Learning Community Scholarship", date: "2022.06", description: "" },
+    { title: "Myongji University Data Analytics Competition Excellence Award", date: "2022.12", description: "" },
+    { title: "Myongji University Data Analytics TA Social Advancement Scholarship", date: "2022.12", description: "" },
+    { title: "Myongji University Capstone Design Graduation Project Grand Prize", date: "2023.06", description: "" },
+    { title: "Myongji University Data Science Club 'FoM' Step 2 Completion", date: "2023.08", description: "" },
+    { title: "National Assembly Public Data Competition Finalist", date: "2023.12", description: "Under review" },
+    { title: "Myongji University On-site Training Review Competition Grand Prize", date: "2024.01", description: "" }
   ];
 
   const skills = [
@@ -141,13 +141,24 @@ const Resume = () => {
     <div className="min-h-screen text-white p-8">
       <div className="max-w-4xl mx-auto grid gap-8">
         <ResumeSection delay={0.2}>
-          <h2 className="text-3xl font-bold mb-4 text-blue-300">Personal Information</h2>
-          <p>이름: 정재헌</p>
-          <p>학력: 명지대학교 산업경영공학과</p>
-          <p>GPA: 3.89 / 4.5</p>
-          <p>생년월일: 1999.01.19</p>
-          <p>현 소속기관: (주)마켓디자이너스</p>
-          <p>직책: AI Researcher</p>
+          <div className="flex items-start">
+            <div className="flex-grow">
+              <h2 className="text-3xl font-bold mb-4 text-blue-300">Personal Information</h2>
+              <p>Name: Jaeheon Jeong</p>
+              <p>Education: Myongji University, Industrial and Management Engineering</p>
+              <p>GPA: 3.89 / 4.5</p>
+              <p>Date of Birth: 1999.01.19</p>
+              <p>Current Affiliation: Market Designers Co., Ltd.</p>
+              <p>Position: AI Researcher</p>
+            </div>
+            <div className="ml-6 flex-shrink-0">
+              <img
+                src="/images/profile.jpg"
+                alt="Jaeheon Jeong"
+                className="w-40 h-60 rounded-full object-cover"
+              />
+            </div>
+          </div>
         </ResumeSection>
 
         <ResumeSection delay={0.4}>

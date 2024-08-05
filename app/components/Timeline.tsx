@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export interface TimelineEvent {
+interface TimelineEvent {
   date: string;
   title: string;
   description: string;
@@ -14,7 +14,7 @@ interface TimelineProps {
 export const Timeline: React.FC<TimelineProps> = ({ events }) => {
   return (
     <div className="relative">
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-white/30"></div>
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200"></div>
       {events.map((event, index) => (
         <motion.div
           key={index}
@@ -24,13 +24,26 @@ export const Timeline: React.FC<TimelineProps> = ({ events }) => {
           transition={{ duration: 0.5, delay: index * 0.1 }}
         >
           <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'order-1 pl-8'}`}>
-            <h3 className="mb-1 font-bold text-lg">{event.date}</h3>
-            <h4 className="mb-1 font-bold text-xl">{event.title}</h4>
+            <motion.h3 
+              className="mb-1 font-bold text-lg"
+              whileHover={{ scale: 1.05, color: "#4fd1c5" }}
+            >
+              {event.date}
+            </motion.h3>
+            <motion.h4 
+              className="mb-1 font-bold text-xl"
+              whileHover={{ scale: 1.05, color: "#4fd1c5" }}
+            >
+              {event.title}
+            </motion.h4>
             <p className="text-sm text-gray-300">{event.description}</p>
           </div>
-          <div className="z-20 flex items-center order-1 bg-green-300 shadow-md w-8 h-8 rounded-full">
-            <h1 className="mx-auto font-semibold text-lg text-black">{index + 1}</h1>
-          </div>
+          <motion.div 
+            className="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full"
+            whileHover={{ scale: 1.2, backgroundColor: "#4fd1c5" }}
+          >
+            <span className="mx-auto font-semibold text-lg text-white">•</span>
+          </motion.div>
         </motion.div>
       ))}
     </div>
