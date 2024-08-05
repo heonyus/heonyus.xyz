@@ -67,14 +67,14 @@ export default function Home() {
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-white/0 via-white/50 to-white/0" />
         <div className="my-16 text-center animate-fade-in">
           <h2 className="text-sm text-white ">
-            I'm building{" "}
+          I am exploring{" "}
             <Link
               target="_blank"
-              href="https://unkey.dev"
+              href="https://github.com/sparkerhoney"
               className="underline duration-500 hover:text-white"
             >
-              unkey.dev
-            </Link> to solve API authentication and authorization for developers.
+              AI
+            </Link> for the essence of humanity and creating a more human-like something.
           </h2>
         </div>
         
