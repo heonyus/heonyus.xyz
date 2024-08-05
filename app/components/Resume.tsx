@@ -122,6 +122,9 @@ const Resume: React.FC = () => {
     <div className="min-h-screen p-4 sm:p-8">
       <div className="max-w-4xl mx-auto grid gap-6 sm:gap-8">
         <ResumeSection delay={0.2}>
+          <h2 className="mb-4 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold">
+            개인 정보
+          </h2>
           <div className="flex flex-col sm:flex-row items-center sm:items-start">
             <div className="mb-4 sm:mb-0 sm:mr-6 flex-shrink-0">
               <div className="p-1 rounded-lg bg-gradient-to-r from-pink-300/30 via-purple-300/30 to-cyan-300/30 backdrop-filter backdrop-blur-sm shadow-lg shadow-purple-500/30">
@@ -133,9 +136,6 @@ const Resume: React.FC = () => {
               </div>
             </div>
             <div className="flex-grow">
-              <h2 className="mb-4 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold">
-                Personal Information
-              </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { label: "Name", value: "Jaeheon Jeong" },
