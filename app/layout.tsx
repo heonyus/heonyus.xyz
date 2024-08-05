@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     default: "jay.ai",
     template: "%s | jay.ai",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "",
   openGraph: {
     title: "jay.ai",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
+      "",
     url: "https://jay.ai",
     siteName: "jay.ai",
     images: [
