@@ -29,8 +29,8 @@ export default function Contact() {
 	return (
 		<div className="relative w-screen min-h-screen overflow-hidden bg-gradient-to-tl from-purple-900 via-pink-500 to-orange-500">
 			<Particles
-				className="absolute inset-0 z-0 animate-fade-in"
-				quantity={5000}
+				className="absolute inset-0 z-0"
+				quantity={1000}
 				staticity={5} 
 			/>
 			<div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>

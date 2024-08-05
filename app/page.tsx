@@ -7,7 +7,6 @@ import Resume from "./components/Resume";
 import { motion } from "framer-motion";
 
 const navigation = [
-  { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -60,7 +59,7 @@ export default function Home() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm duration-500 text-white hover:text-purple-200"
+                className="underline font-extrabold text-sm duration-500 text-pink-100 hover:text-purple-200"
               >
                 {item.name}
               </Link>
@@ -84,7 +83,7 @@ export default function Home() {
             <Link
               target="_blank"
               href="https://github.com/sparkerhoney"
-              className="underline duration-500 hover:text-purple-200"
+              className="underline font-extrabold text-pink-100 duration-500 hover:text-purple-200"
             >
               AI
             </Link> for the essence of humanity and creating a more human-like something.
