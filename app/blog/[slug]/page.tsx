@@ -1,3 +1,5 @@
+"use client";
+
 import { getPostBySlug } from '../../lib/api';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import TableOfContents from '../../components/TableOfContents';
