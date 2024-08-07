@@ -1,7 +1,10 @@
+"use client";
+
 import React from 'react';
 import BlogCard from './BlogCard';
 import { motion } from 'framer-motion';
 import { Post } from 'contentlayer/generated'; // Post type imported
+import Link from 'next/link';
 
 interface BlogListProps {
   posts: Post[];
@@ -22,7 +25,9 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
         >
-          <BlogCard post={post} />
+          <Link href={`/blog/${post.slug}`}>
+            <BlogCard post={post} />
+          </Link>
         </motion.div>
       ))}
     </motion.div>

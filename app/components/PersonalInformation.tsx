@@ -23,7 +23,8 @@ const PersonalInformation: React.FC = () => {
         </motion.div>
         <div className="flex-grow">
           <h2 className="text-3xl font-bold text-white mb-2">Jeong Jae Heon</h2>
-          <p className="text-lg text-purple-200 mb-4">수적천석의 마음가짐으로 성실히 살아가는 중입니다!</p>
+
+          
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
               <p className="text-purple-200">생년월일: 1999. 01. 19</p>

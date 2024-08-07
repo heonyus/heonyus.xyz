@@ -1,8 +1,9 @@
+"use client";
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import TagCloud from './TagCloud';
-import SearchBar from './SearchBar';
 
 interface SidebarProps {
   categories: string[];
@@ -14,15 +15,27 @@ interface SidebarProps {
   setSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ categories = [], tags = [], setSearchTerm, selectedCategory, setSelectedCategory, selectedTags, setSelectedTags }) => {
-  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+const Sidebar: React.FC<SidebarProps> = ({
+  categories,
+  tags,
+  setSearchTerm,
+  selectedCategory,
+  setSelectedCategory,
+  selectedTags,
+  setSelectedTags,
+}) => {
+  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
 
-  const handleCategoryClick = (category: string) => {
-    setSelectedCategory(category === selectedCategory ? '' : category);
+  const toggleCategory = (category: string) => {
+    setExpandedCategories(prev =>
+      prev.includes(category)
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
+    );
   };
 
   return (
-    <div className="p-4 h-full flex flex-col overflow-y-auto scrollbar-hide">
+    <div className="p-4 h-full flex flex-col overflow-y-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
       <div className="flex flex-col items-center space-y-4 mb-6">
         <motion.div
           whileHover={{ scale: 1.05 }}
@@ -47,35 +60,16 @@ const Sidebar: React.FC<SidebarProps> = ({ categories = [], tags = [], setSearch
       <div className="overflow-y-auto flex-grow mb-4">
         <ul>
           {categories.map((category) => (
-            <li key={category} className="mb-1">
-              <button
-                onClick={() => handleCategoryClick(category)}
-                className={`text-white hover:text-purple-200 text-sm ${
-                  selectedCategory === category ? 'font-bold' : ''
-                }`}
-              >
-                {category}
-              </button>
+            <li key={category} className="mb-2">
+              <Link href={`/blog/category/${category}`}>
+                <span className="text-white hover:text-purple-200 text-sm">{category}</span>
+              </Link>
             </li>
           ))}
         </ul>
       </div>
-      <h2 className="text-lg md:text-xl font-bold text-white mb-2">Tag</h2>
+      <h2 className="text-lg md:text-xl font-bold text-white mb-2">#Tag</h2>
       <TagCloud tags={tags} selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
-      
-      {isSearchModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-4 rounded-md w-full max-w-md">
-            <SearchBar setSearchTerm={setSearchTerm} />
-            <button 
-              onClick={() => setIsSearchModalOpen(false)}
-              className="mt-4 w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition-colors duration-300"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
