@@ -1,8 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { Post } from 'contentlayer/generated'; // Post type imported
 
-export default function BlogCard({ post }) {
+interface BlogCardProps {
+  post: Post;
+}
+
+export default function BlogCard({ post }: BlogCardProps) {
   if (!post) return null;
 
   return (

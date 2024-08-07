@@ -1,8 +1,13 @@
 import React from 'react';
 import BlogCard from './BlogCard';
 import { motion } from 'framer-motion';
+import { Post } from 'contentlayer/generated'; // Post type imported
 
-const BlogList = ({ posts }) => {
+interface BlogListProps {
+  posts: Post[];
+}
+
+const BlogList: React.FC<BlogListProps> = ({ posts }) => {
   return (
     <motion.div 
       initial={{ opacity: 0 }}

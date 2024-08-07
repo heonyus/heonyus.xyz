@@ -1,7 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ThemeToggle = ({ theme, setTheme }) => {
+interface ThemeToggleProps {
+  theme: string;
+  setTheme: (theme: string) => void;
+}
+
+const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, setTheme }) => {
   return (
     <motion.button
       whileTap={{ scale: 0.95 }}

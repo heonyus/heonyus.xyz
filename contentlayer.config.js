@@ -25,6 +25,24 @@ export const Post = defineDocumentType(() => ({
     description: { type: "string", required: true },
     tags: { type: "list", of: { type: "string" }, required: true },
     coverImage: { type: "string", required: true },
+    excerpt: { type: "string", required: false },
+    category: { type: "string", required: false },
+  },
+  computedFields,
+}));
+
+export const BlogPost = defineDocumentType(() => ({
+  name: "BlogPost",
+  filePathPattern: "blog//.mdx",
+  contentType: "mdx",
+  fields: {
+    title: { type: "string", required: true },
+    date: { type: "date", required: true },
+    description: { type: "string", required: true },
+    tags: { type: "list", of: { type: "string" }, required: true },
+    coverImage: { type: "string", required: true },
+    excerpt: { type: "string", required: false },
+    category: { type: "string", required: false },
   },
   computedFields,
 }));
@@ -37,16 +55,16 @@ export const Project = defineDocumentType(() => ({
     title: { type: "string", required: true },
     description: { type: "string", required: true },
     date: { type: "date", required: true },
-    published: { type: "boolean", default: true },
-    url: { type: "string" },
-    repository: { type: "string" },
+    url: { type: "string", required: false },
+    repository: { type: "string", required: false },
+    published: { type: "boolean", required: false },
   },
   computedFields,
 }));
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Post, Project],
+  documentTypes: [Post, BlogPost, Project],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

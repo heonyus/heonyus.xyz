@@ -4,10 +4,20 @@ import { motion } from 'framer-motion';
 import TagCloud from './TagCloud';
 import SearchBar from './SearchBar';
 
-const Sidebar = ({ categories = [], tags = [], setSearchTerm, selectedCategory, setSelectedCategory, selectedTags, setSelectedTags }) => {
+interface SidebarProps {
+  categories: string[];
+  tags: string[];
+  setSearchTerm: (term: string) => void;
+  selectedCategory: string;
+  setSelectedCategory: (category: string) => void;
+  selectedTags: string[];
+  setSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ categories = [], tags = [], setSearchTerm, selectedCategory, setSelectedCategory, selectedTags, setSelectedTags }) => {
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: string) => {
     setSelectedCategory(category === selectedCategory ? '' : category);
   };
 

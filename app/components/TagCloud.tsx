@@ -1,24 +1,31 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const TagCloud = ({ tags, selectedTags, setSelectedTags }) => {
+interface TagCloudProps {
+  tags: string[];
+  selectedTags: string[];
+  setSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
+const TagCloud: React.FC<TagCloudProps> = ({ tags, selectedTags, setSelectedTags }) => {
   const [searchTag, setSearchTag] = useState('');
   const [sortBy, setSortBy] = useState('alphabetical');
 
-  const toggleTag = (tag) => {
+  const toggleTag = (tag: string) => {
     setSelectedTags(prev => 
       prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
     );
   };
 
-  const filteredTags = tags.filter(tag => tag.toLowerCase().includes(searchTag.toLowerCase()));
+  const filteredTags = tags.filter((tag: string) => tag.toLowerCase().includes(searchTag.toLowerCase()));
 
-  const sortedTags = [...filteredTags].sort((a, b) => {
+  const sortedTags = [...filteredTags].sort((a: string, b: string) => {
     if (sortBy === 'alphabetical') {
       return a.localeCompare(b);
     } else if (sortBy === 'popularity') {
       return tags.filter(t => t === b).length - tags.filter(t => t === a).length;
     }
+    return 0;
   });
 
   return (

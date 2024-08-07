@@ -9,11 +9,18 @@ import Particles from './particles';
 import { Navigation } from './nav';
 import Link from 'next/link';
 import Sidebar from './Sidebar';
+import { Post } from 'contentlayer/generated';
 
-export default function BlogPageClient({ initialPosts, initialTags, categories }) {
-  const [selectedTags, setSelectedTags] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
+interface BlogPageClientProps {
+  initialPosts: Post[];
+  initialTags: string[];
+  categories: string[];
+}
+
+export default function BlogPageClient({ initialPosts, initialTags, categories }: BlogPageClientProps) {
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(1);
   const postsPerPage: number = 5;
 
