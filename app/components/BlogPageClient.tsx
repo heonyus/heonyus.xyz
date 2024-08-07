@@ -12,12 +12,14 @@ import Sidebar from './Sidebar';
 
 export default function BlogPageClient({ initialPosts, initialTags, categories }) {
   const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState<number>(1);
   const postsPerPage: number = 5;
 
   const filteredPosts = initialPosts.filter(post => 
     (selectedTags.length === 0 || selectedTags.every(tag => post.tags.includes(tag))) &&
+    (selectedCategory === '' || post.category === selectedCategory) &&
     ((post.title && post.title.toLowerCase().includes(searchTerm.toLowerCase())) || 
      (post.excerpt && post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())))
   );
@@ -41,7 +43,15 @@ export default function BlogPageClient({ initialPosts, initialTags, categories }
       </div>
       <div className="flex relative z-20">
         <div className="hidden md:block w-1/5 lg:w-1/4 xl:w-80 bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg z-40 overflow-y-auto fixed left-0 top-0 bottom-0 pt-20 transition-all duration-300">
-          <Sidebar categories={categories} />
+          <Sidebar 
+            categories={categories} 
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            tags={initialTags}
+            selectedTags={selectedTags}
+            setSelectedTags={setSelectedTags}
+            setSearchTerm={setSearchTerm}
+          />
         </div>
         <div className="w-full md:ml-[20%] lg:ml-1/4 xl:ml-80 pt-20">
           <div className="container mx-auto px-4 py-8 relative z-10">

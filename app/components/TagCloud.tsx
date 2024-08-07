@@ -28,26 +28,8 @@ const TagCloud = ({ tags, selectedTags, setSelectedTags }) => {
         placeholder="Search Tags..."
         value={searchTag}
         onChange={(e) => setSearchTag(e.target.value)}
-        className="w-full p-2 mb-4 rounded bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg text-white"
+        className="w-full px-3 py-1 text-sm bg-gray-800 bg-opacity-20 backdrop-filter backdrop-blur-sm rounded-md border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-purple-200"
       />
-      <div className="mb-4">
-        <label className="mr-4">
-          <input
-            type="radio"
-            value="alphabetical"
-            checked={sortBy === 'alphabetical'}
-            onChange={() => setSortBy('alphabetical')}
-          /> 알파벳순
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="popularity"
-            checked={sortBy === 'popularity'}
-            onChange={() => setSortBy('popularity')}
-          /> 인기순
-        </label>
-      </div>
       <div className="flex flex-wrap justify-center gap-2">
         {sortedTags.map((tag) => (
           <motion.button

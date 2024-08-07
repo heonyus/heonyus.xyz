@@ -1,19 +1,35 @@
 import { getPostBySlug } from '../../lib/api';
-import { MDXRemote } from 'next-mdx-remote';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import TableOfContents from '../../components/TableOfContents';
+import { Navigation } from '../../components/nav';
+import Link from 'next/link';
 
 export default async function BlogPost({ params }) {
   const post = await getPostBySlug(params.slug);
 
   return (
-    <div className="container mx-auto px-4 flex">
-      <aside className="w-1/4">
-        <TableOfContents content={post.content} />
-      </aside>
-      <article className="w-3/4">
-        <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-        <MDXRemote {...post.content} />
-      </article>
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-pink-500 to-orange-500">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg">
+        <Navigation />
+      </div>
+      <div className="container mx-auto px-4 pt-24 pb-12">
+        <div className="flex flex-col md:flex-row gap-8">
+          <aside className="md:w-1/4">
+            <div className="sticky top-24">
+              <TableOfContents content={post.content} />
+            </div>
+          </aside>
+          <article className="md:w-3/4 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg shadow-xl p-8">
+            <h1 className="text-4xl font-bold mb-6 text-white">{post.title}</h1>
+            <div className="prose prose-invert max-w-none">
+              <MDXRemote source={post.content} />
+            </div>
+          </article>
+        </div>
+      </div>
+      <Link href="/blog" className="fixed bottom-8 right-8 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition-colors duration-300 z-50">
+        📚
+      </Link>
     </div>
   );
 }

@@ -5,11 +5,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
-  experimental: {
-    appDir: true,
-  },
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'github.com'],
   },
   async rewrites() {
     return [
