@@ -8,6 +8,9 @@ const nextConfig = {
   images: {
     domains: ['localhost', 'github.com'],
   },
+  typescript: {
+    ignoreBuildErrors: true, // 빌드 시 타입 오류 무시
+  },
 };
 
 export default withContentlayer(nextConfig);

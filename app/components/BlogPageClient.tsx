@@ -9,8 +9,15 @@ import Particles from './particles';
 import Link from 'next/link';
 import Sidebar from './Sidebar';
 import BlogCard from './BlogCard';
+import { Post } from 'contentlayer/generated';
 
-export default function BlogPageClient({ initialPosts, initialTags, categories }) {
+interface BlogPageClientProps {
+  initialPosts: Post[];
+  initialTags: string[];
+  categories: string[];
+}
+
+export default function BlogPageClient({ initialPosts, initialTags, categories }: BlogPageClientProps) {
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -63,7 +70,7 @@ export default function BlogPageClient({ initialPosts, initialTags, categories }
             </div>
           </div>
           <div className="flex mt-20">
-            <div className="hidden md:block w-1/6 lg:w-1/5 xl:w-74 bg-opacity-20 backdrop-filter backdrop-blur-lg z-30 overflow-y-auto fixed left-0 top-20 bottom-0 pt-4 transition-all duration-300">
+            <div className="hidden md:block w-1/6 lg:w-1/5 xl:w-64 bg-opacity-20 backdrop-filter backdrop-blur-lg z-30 overflow-y-auto fixed left-0 top-20 bottom-0 pt-4 transition-all duration-300">
               <Sidebar categories={categories} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
               <TagCloud tags={initialTags} selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
             </div>
