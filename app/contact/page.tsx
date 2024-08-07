@@ -67,12 +67,10 @@ export default function Contact() {
 				</div>
 			</div>
 			
-			{/* 홈페이지로 돌아가는 버튼 추가 */}
-			<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-				<Link href="/">
-					<span className="text-4xl hover:text-5xl transition-all duration-300">🏠</span>
-				</Link>
-			</div>
+			{/* 홈페이지로 돌아가는 버튼 수정 */}
+			<Link href="/" className="fixed bottom-8 right-8 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition-colors duration-300 z-20">
+				🏠
+			</Link>
 		</div>
 	);
 }

@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 const navigation = [
   { name: "Contact", href: "/contact" },
+  { name: "Blog", href: "/blog" },
 ];
 
 export default function Home() {
@@ -72,21 +73,21 @@ export default function Home() {
           quantity={500}
           staticity={5} 
         />
-        <h1 className="py-3.5 px-0.5 z-10 text-5xl text-transparent duration-100 bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap">
-          Jay
+        <h1 className="py-3.5 px-0.5 z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl text-transparent duration-100 bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display whitespace-nowrap">
+          JAY
         </h1>
-        <div className="absolute inset-0 z-0 bg-[url('/path/to/cool-pattern.png')] opacity-10 animate-spin-slow"></div>
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-white/0 via-white/50 to-white/0" />
         <div className="my-16 text-center animate-fade-in">
-          <h2 className="text-sm text-white ">
-          I am exploring{" "}
+          <h2 className="text-sm sm:text-base md:text-lg lg:text-xl text-white">
+            I am exploring{" "}
             <Link
               target="_blank"
               href="https://github.com/sparkerhoney"
               className="underline font-extrabold text-pink-100 duration-500 hover:text-purple-200"
             >
               AI
-            </Link> for the essence of humanity and creating a more human-like something.
+            </Link>{" "}
+            for the essence of humanity and creating a more human-like something.
           </h2>
         </div>
         
