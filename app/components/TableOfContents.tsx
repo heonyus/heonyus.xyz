@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 
 interface TableOfContentsProps {
   content: string;
@@ -10,9 +10,20 @@ interface TableOfContentsProps {
 const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => {
   const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([]);
   const [activeId, setActiveId] = useState<string>('');
+  const [isVisible, setIsVisible] = useState(true);
+  const tocRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+
+  const springY = useSpring(scrollY, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const y = useTransform(springY, [0, 100], [0, 20]);
 
   useEffect(() => {
-    const elements = document.querySelectorAll('h1, h2, h3');
+    const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
     const headingsData = Array.from(elements).map((el) => ({
       id: el.id,
       text: el.textContent || '',
@@ -20,47 +31,79 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => {
     }));
     setHeadings(headingsData);
 
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -80% 0px" }
+    );
 
-      for (let i = headingsData.length - 1; i >= 0; i--) {
-        const element = document.getElementById(headingsData[i].id);
-        if (element && element.offsetTop <= scrollPosition + 100) {
-          setActiveId(headingsData[i].id);
-          break;
-        }
-      }
-    };
+    elements.forEach((el) => observer.observe(el));
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => observer.disconnect();
   }, [content]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsVisible(window.innerWidth === window.screen.width);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handleClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.pageYOffset - 100;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
+  if (!isVisible) return null;
+
   return (
-    <nav className="bg-white/5 backdrop-filter backdrop-blur-lg rounded-lg p-4">
-      <ul className="space-y-2">
+    <motion.nav 
+      ref={tocRef}
+      className="fixed top-24 right-4 w-64 max-h-[calc(100vh-8rem)] overflow-y-auto text-white rounded-lg p-4 shadow-lg z-50 lg:block"
+      style={{ y }}
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <ul className="space-y-2 text-sm">
         {headings.map((heading) => (
-          <motion.li
+          <li
             key={heading.id}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3 }}
-            style={{ marginLeft: `${(heading.level - 1) * 12}px` }}
+            className={`${
+              heading.level === 1 ? 'ml-0' : `ml-${(heading.level - 1) * 2}`
+            } transition-colors duration-200 ${
+              activeId === heading.id ? 'text-purple-300' : 'hover:text-purple-300'
+            } ${
+              heading.level === 1 ? 'text-base' :
+              heading.level === 2 ? 'text-sm' :
+              'text-xs'
+            }`}
           >
-            <a
+            <a 
               href={`#${heading.id}`}
-              className={`block py-1 px-2 rounded transition-colors duration-200 text-xs md:text-sm ${
-                activeId === heading.id
-                  ? 'bg-gray-700 text-white'
-                  : 'text-gray-300 hover:bg-gray-600 hover:text-white'
+              onClick={(e) => handleClick(e, heading.id)}
+              className={`block py-1 cursor-pointer ${
+                activeId === heading.id ? 'font-bold' : ''
               }`}
             >
               {heading.text}
             </a>
-          </motion.li>
+          </li>
         ))}
       </ul>
-    </nav>
+    </motion.nav>
   );
 };
 
