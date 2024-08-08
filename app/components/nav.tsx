@@ -18,17 +18,17 @@ export const Navigation: React.FC = () => {
 
 	return (
 		<header ref={ref}>
-			<div
-				className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
-					isIntersecting
-						? "bg-zinc-900/0 border-transparent"
-						: "bg-zinc-900/500 border-zinc-800"
-				}`}
-			>
+			<div className="fixed inset-x-0 top-0 z-50">
 				<div className="container flex justify-end items-center p-6 mx-auto">
 					<Link
+						href="/blog"
+						className="duration-200 text-zinc-100 hover:text-pink-200 mr-4"
+					>
+						Blog
+					</Link>
+					<Link
 						href="/contact"
-						className="duration-200 text-pink-200 hover:text-zinc-100"
+						className="duration-200 text-zinc-100 hover:text-pink-200"
 					>
 						Contact
 					</Link>

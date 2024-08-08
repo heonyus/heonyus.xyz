@@ -4,7 +4,8 @@ import ClientTagPage from './ClientTagPage';
 
 export default async function TagPage({ params }: { params: { tag: string } }) {
   const posts = await getAllPosts();
-  const filteredPosts = posts.filter(post => post.tags.includes(params.tag));
+  const decodedTag = decodeURIComponent(params.tag);
+  const filteredPosts = posts.filter(post => post.tags.includes(decodedTag));
 
-  return <ClientTagPage posts={filteredPosts} tag={params.tag} />;
+  return <ClientTagPage posts={filteredPosts} tag={decodedTag} />;
 }

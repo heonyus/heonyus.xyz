@@ -74,7 +74,7 @@ export default function Home() {
           staticity={5} 
         />
         <h1 className="py-3.5 px-0.5 z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl text-transparent duration-100 bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display whitespace-nowrap">
-          JAY
+          Jay
         </h1>
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-white/0 via-white/50 to-white/0" />
         <div className="my-16 text-center animate-fade-in">

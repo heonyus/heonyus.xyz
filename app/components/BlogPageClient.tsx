@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import BlogList from './BlogList';
 import TagCloud from './TagCloud';
 import SearchBar from './SearchBar';
@@ -48,8 +48,26 @@ export default function BlogPageClient({ initialPosts, initialTags, categories }
     groupedPosts[post.category].push(post);
   });
 
+  const categoryStructure = useMemo(() => {
+    const structure = {};
+    initialPosts.forEach(post => {
+      const parts = post.slug.split('/');
+      let currentLevel = structure;
+      parts.forEach((part, index) => {
+        if (index === parts.length - 1) {
+          if (!currentLevel[part]) currentLevel[part] = [];
+          currentLevel[part].push(post);
+        } else {
+          if (!currentLevel[part]) currentLevel[part] = {};
+          currentLevel = currentLevel[part];
+        }
+      });
+    });
+    return structure;
+  }, [initialPosts]);
+
   return (
-    <div className="relative w-screen min-h-screen overflow-hidden bg-gradient-to-tl from-purple-900 via-pink-500 to-orange-500">
+    <div className="relative w-screen h-screen overflow-hidden bg-gradient-to-tl from-purple-900 via-pink-500 to-orange-500">
       <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-green-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
       <Particles
@@ -58,23 +76,29 @@ export default function BlogPageClient({ initialPosts, initialTags, categories }
         staticity={5}
       />
       {isClient && (
-        <div className="flex flex-col relative z-20">
+        <div className="flex flex-col relative z-20 h-full overflow-hidden">
           <div className="w-full bg-opacity-20 backdrop-filter backdrop-blur-lg z-40 fixed top-0 left-0 right-0 py-4">
             <div className="container mx-auto px-4 flex justify-between items-center">
               <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display leading-tight">
-                TECH STORY
+                BLOG
               </h1>
               <div className="w-1/3">
                 <SearchBar setSearchTerm={setSearchTerm} />
               </div>
             </div>
           </div>
-          <div className="flex mt-20">
-            <div className="hidden md:block w-1/6 lg:w-1/5 xl:w-64 bg-opacity-20 backdrop-filter backdrop-blur-lg z-30 overflow-y-auto fixed left-0 top-20 bottom-0 pt-4 transition-all duration-300">
-              <Sidebar categories={categories} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
-              <TagCloud tags={initialTags} selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
+          <div className="flex mt-20 h-full overflow-hidden">
+            <div className="hidden md:block w-1/6 lg:w-1/5 xl:w-64 bg-opacity-20 backdrop-filter backdrop-blur-lg z-30 overflow-y-auto fixed left-0 top-20 bottom-0 pt-4 transition-all duration-300 scrollbar-hide">
+              <Sidebar 
+                categoryStructure={categoryStructure}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                tags={initialTags}
+                selectedTags={selectedTags}
+                setSelectedTags={setSelectedTags}
+              />
             </div>
-            <div className="w-full md:ml-[20%] lg:ml-1/4 xl:ml-80 pt-4">
+            <div className="w-full md:ml-[20%] lg:ml-1/4 xl:ml-80 pt-4 overflow-y-auto scrollbar-hide h-full">
               <div className="container mx-auto px-4 py-8 relative z-10">
                 <BlogList posts={currentPosts} />
                 <Pagination
