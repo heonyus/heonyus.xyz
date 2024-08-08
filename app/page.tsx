@@ -96,7 +96,7 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="absolute bottom-10 z-10"
+            className="absolute bottom-16 z-10"
           >
             <svg
               className="w-10 h-10 text-white animate-bounce"
