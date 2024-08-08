@@ -49,7 +49,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsVisible(window.innerWidth === window.screen.width);
+      setIsVisible(window.innerWidth >= 1024);
     };
 
     handleResize();
