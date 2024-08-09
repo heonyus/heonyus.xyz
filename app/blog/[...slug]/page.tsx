@@ -10,6 +10,7 @@ import Particles from '../../components/particles';
 import TableOfContents from '../../components/TableOfContents';
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 
 export default function BlogPost({ params }: { params: { slug: string[] } }) {
   const [post, setPost] = useState(null);
@@ -19,11 +20,18 @@ export default function BlogPost({ params }: { params: { slug: string[] } }) {
   const contentRef = useRef(null);
 
   useEffect(() => {
+    console.log('Blog post accessed:', params.slug);
+  }, [params.slug]);
+
+  useEffect(() => {
     async function fetchPost() {
+      console.log('Fetching post for slug:', slug);
       const fetchedPost = await getPostBySlug(slug);
       if (!fetchedPost) {
+        console.log('Post not found for slug:', slug);
         notFound();
       }
+      console.log('Post fetched:', fetchedPost.title);
       setPost(fetchedPost);
       const adjacent = await getAdjacentPosts(slug);
       setAdjacentPosts(adjacent);
