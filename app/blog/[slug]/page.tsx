@@ -28,17 +28,19 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         staticity={5}
       />
       <Navigation className="bg-transparent" />
-      <div className="container relative z-10 mx-auto px-4 py-24 flex justify-center">
-        <div className="w-full max-w-4xl mx-auto p-6 flex flex-col lg:flex-row">
-          <article className="w-full lg:w-3/4 bg-white/10 backdrop-filter backdrop-blur-lg rounded-xl shadow-lg p-6 mb-6 lg:mb-0 lg:mr-4">
+      <div className="container relative z-10 mx-auto px-4 py-24">
+        <div className="w-full max-w-4xl mx-auto p-6">
+          <article className="w-full bg-white/10 backdrop-filter backdrop-blur-lg rounded-xl shadow-lg p-6 mb-6">
             <h1 className="text-4xl font-bold mb-4 text-white">{post.title}</h1>
             <div className="text-sm text-purple-200 mb-4">
               {new Date(post.date).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}
             </div>
             <Mdx code={post.body.code} />
           </article>
-          <div className="w-full lg:w-1/4 sticky top-6 self-start">
-            <TableOfContents content={post.body.raw} />
+          <div className="w-full lg:w-1/4 mt-6">
+            <div className="sticky top-6">
+              <TableOfContents content={post.body.raw} />
+            </div>
           </div>
         </div>
       </div>
