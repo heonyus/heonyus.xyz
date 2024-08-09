@@ -54,41 +54,38 @@ export default function Home() {
       <div className="sticky top-0 flex flex-col items-center justify-center h-screen overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-green-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
-        <nav className="absolute top-8 sm:top-12 animate-fade-in z-10">
-          <ul className="flex items-center justify-center gap-4">
-            {navigation.map((item) => (
+        <div className="flex flex-col items-center space-y-4 sm:space-y-6">
+          <nav className="animate-fade-in z-10">
+            <ul className="flex items-center justify-center gap-4">
+              {navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="underline font-extrabold text-sm duration-500 text-pink-100 hover:text-purple-200"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </ul>
+          </nav>
+          
+          <h1 className="z-10 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display">
+            Jay
+          </h1>
+          
+          <div className="text-center animate-fade-in px-4 max-w-lg">
+            <h2 className="text-sm sm:text-base md:text-lg lg:text-xl text-white">
+              I am exploring{" "}
               <Link
-                key={item.href}
-                href={item.href}
-                className="underline font-extrabold text-sm duration-500 text-pink-100 hover:text-purple-200"
+                target="_blank"
+                href="https://github.com/sparkerhoney"
+                className="underline font-extrabold text-pink-100 duration-500 hover:text-purple-200"
               >
-                {item.name}
-              </Link>
-            ))}
-          </ul>
-        </nav>
-        <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-white/0 via-white/50 to-white/0" />
-        <Particles
-          className="absolute inset-0 z-0 animate-fade-in"
-          quantity={500}
-          staticity={5} 
-        />
-        <h1 className="mt-24 sm:mt-32 py-2 sm:py-3.5 px-0.5 z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl text-transparent duration-100 bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display whitespace-nowrap">
-          Jay
-        </h1>
-        <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-white/0 via-white/50 to-white/0" />
-        <div className="mt-8 sm:mt-12 text-center animate-fade-in px-4 max-w-lg">
-          <h2 className="text-sm sm:text-base md:text-lg lg:text-xl text-white">
-            I am exploring{" "}
-            <Link
-              target="_blank"
-              href="https://github.com/sparkerhoney"
-              className="underline font-extrabold text-pink-100 duration-500 hover:text-purple-200"
-            >
-              AI
-            </Link>{" "}
-            for the essence of humanity and creating a more human-like something.
-          </h2>
+                AI
+              </Link>{" "}
+              for the essence of humanity and creating a more human-like something.
+            </h2>
+          </div>
         </div>
         
         {showScrollArrow && (
@@ -96,7 +93,7 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="absolute bottom-12 sm:bottom-16 z-10"
+            className="absolute bottom-8 sm:bottom-10 z-10"
           >
             <svg
               className="w-8 h-8 sm:w-10 sm:h-10 text-white animate-bounce"
@@ -111,6 +108,12 @@ export default function Home() {
             </svg>
           </motion.div>
         )}
+        
+        <Particles
+          className="absolute inset-0 z-0 animate-fade-in"
+          quantity={500}
+          staticity={5} 
+        />
       </div>
       <div className="relative z-10">
         <Resume />
