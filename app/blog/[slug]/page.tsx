@@ -6,9 +6,8 @@ import TableOfContents from '../../components/TableOfContents';
 import { Mdx } from '../../components/mdx';
 import Link from 'next/link';
 
-export default async function BlogPost({ params }: { params: { slug: string[] } }) {
-  const slug = params.slug.join('/');
-  const decodedSlug = decodeURIComponent(slug);
+export default async function BlogPost({ params }: { params: { slug: string } }) {
+  const decodedSlug = decodeURIComponent(params.slug);
   
   console.log('Fetching post for slug:', decodedSlug);
   const post = await getPostBySlug(decodedSlug);

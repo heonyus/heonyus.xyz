@@ -6,7 +6,7 @@ export async function getAllPosts() {
 
 export async function getPostBySlug(slug: string) {
   console.log('Fetching post for slug:', slug);
-  const post = allPosts.find((post) => post.slug === slug || post._raw.flattenedPath === `blog/${slug}`);
+  const post = allPosts.find((post) => post.slug === slug);
   console.log('Fetched post:', post ? post.title : 'Not found');
   return post;
 }

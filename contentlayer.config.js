@@ -7,7 +7,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 const computedFields = {
   slug: {
     type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.replace(/^blog\//, ''),
+    resolve: (doc) => doc._raw.flattenedPath.split('/').pop(),
   },
 };
 
