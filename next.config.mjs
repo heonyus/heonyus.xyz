@@ -15,6 +15,9 @@ const nextConfig = {
     // hydration 오류를 무시하도록 설정 추가
     suppressHydrationWarning: true,
   },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+  },
 };
 
 export default withContentlayer(nextConfig);
