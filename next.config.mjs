@@ -14,6 +14,7 @@ const nextConfig = {
   experimental: {
     // hydration 오류를 무시하도록 설정 추가
     suppressHydrationWarning: true,
+    appDir: true,
   },
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,

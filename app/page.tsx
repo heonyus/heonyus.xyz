@@ -54,7 +54,7 @@ export default function Home() {
       <div className="sticky top-0 flex flex-col items-center justify-center h-screen overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-green-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
-        <nav className="my-16 animate-fade-in z-10">
+        <nav className="absolute top-8 sm:top-12 animate-fade-in z-10">
           <ul className="flex items-center justify-center gap-4">
             {navigation.map((item) => (
               <Link
@@ -73,11 +73,11 @@ export default function Home() {
           quantity={500}
           staticity={5} 
         />
-        <h1 className="py-3.5 px-0.5 z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl text-transparent duration-100 bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display whitespace-nowrap">
+        <h1 className="mt-24 sm:mt-32 py-2 sm:py-3.5 px-0.5 z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl text-transparent duration-100 bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display whitespace-nowrap">
           Jay
         </h1>
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-white/0 via-white/50 to-white/0" />
-        <div className="my-16 text-center animate-fade-in">
+        <div className="mt-8 sm:mt-12 text-center animate-fade-in px-4 max-w-lg">
           <h2 className="text-sm sm:text-base md:text-lg lg:text-xl text-white">
             I am exploring{" "}
             <Link
@@ -96,10 +96,10 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="absolute bottom-16 z-10"
+            className="absolute bottom-12 sm:bottom-16 z-10"
           >
             <svg
-              className="w-10 h-10 text-white animate-bounce"
+              className="w-8 h-8 sm:w-10 sm:h-10 text-white animate-bounce"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
