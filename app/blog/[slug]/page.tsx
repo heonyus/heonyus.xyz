@@ -15,8 +15,9 @@ export default function BlogPost({ params }: { params: Params }) {
 
   useEffect(() => {
     async function loadPost() {
-      console.log('Loading post for slug:', params.slug);
-      const fetchedPost = await getPostBySlug(params.slug);
+      const decodedSlug = decodeURIComponent(params.slug);
+      console.log('Loading post for slug:', decodedSlug);
+      const fetchedPost = await getPostBySlug(decodedSlug);
       console.log('Fetched post:', fetchedPost);
       setPost(fetchedPost);
       setLoading(false);
