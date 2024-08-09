@@ -1,12 +1,9 @@
 import { NextResponse } from 'next/server';
-import { getAllPosts } from '../../lib/api';
-import { Post } from 'contentlayer/generated';
+import { allPosts } from 'contentlayer/generated';
 
 export async function GET() {
   try {
-    const posts = await getAllPosts();
-    
-    const formattedPosts = posts.map((post: Post) => ({
+    const formattedPosts = allPosts.map((post) => ({
       slug: post.slug,
       title: post.title,
       date: post.date,
