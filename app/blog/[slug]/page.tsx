@@ -3,16 +3,33 @@
 import { getPostBySlug } from '../../lib/api';
 import { Mdx } from '../../components/mdx';
 import TableOfContents from '../../components/TableOfContents';
+import { useEffect, useState } from 'react';
 
 interface Params {
   slug: string;
 }
 
-export default async function BlogPost({ params }: { params: Params }) {
-  const post = await getPostBySlug(params.slug);
-  
+export default function BlogPost({ params }: { params: Params }) {
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadPost() {
+      console.log('Loading post for slug:', params.slug);
+      const fetchedPost = await getPostBySlug(params.slug);
+      console.log('Fetched post:', fetchedPost);
+      setPost(fetchedPost);
+      setLoading(false);
+    }
+    loadPost();
+  }, [params.slug]);
+
+  if (loading) {
+    return <div>로딩 중...</div>;
+  }
+
   if (!post) {
-    return <div>포스트를 찾을 수 없습니다.</div>;
+    return <div>포스트를 찾을 수 없습니다. (slug: {params.slug})</div>;
   }
 
   return (

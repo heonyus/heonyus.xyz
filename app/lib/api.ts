@@ -5,7 +5,10 @@ export async function getAllPosts() {
 }
 
 export async function getPostBySlug(slug: string) {
-  return allPosts.find((post) => post.slug === slug || post._raw.flattenedPath === `blog/${slug}`);
+  console.log('Fetching post for slug:', slug);
+  const post = allPosts.find((post) => post.slug === slug || post._raw.flattenedPath === `blog/${slug}`);
+  console.log('Fetched post:', post ? post.title : 'Not found');
+  return post;
 }
 
 export async function getAllTags() {
