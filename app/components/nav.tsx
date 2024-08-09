@@ -3,9 +3,23 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { useMediaQuery } from 'react-responsive';
+import { useEffect, useState } from 'react';
 
 export const Navigation: React.FC<{ className?: string }> = ({ className }) => {
   const pathname = usePathname();
+  const [isFullScreen, setIsFullScreen] = useState(true);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    setIsFullScreen(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsFullScreen(e.matches);
+    mediaQuery.addListener(handler);
+    return () => mediaQuery.removeListener(handler);
+  }, []);
+
+  if (!isFullScreen) return null;
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 ${className}`}>

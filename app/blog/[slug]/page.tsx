@@ -4,6 +4,7 @@ import { getPostBySlug } from '../../lib/api';
 import { Mdx } from '../../components/mdx';
 import TableOfContents from '../../components/TableOfContents';
 import { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive'; // Added this line
 
 interface Params {
   slug: string;
@@ -12,6 +13,7 @@ interface Params {
 export default function BlogPost({ params }: { params: Params }) {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+  const isFullScreen = useMediaQuery({ query: '(min-width: 1024px)' }); // Added this line
 
   useEffect(() => {
     async function loadPost() {
@@ -43,9 +45,11 @@ export default function BlogPost({ params }: { params: Params }) {
           </div>
           <Mdx code={post.body.code} />
         </article>
-        <div className="w-1/4 sticky top-6 self-start">
-          <TableOfContents content={post.body.code} />
-        </div>
+        {isFullScreen && (
+          <div className="w-1/4 sticky top-6 self-start">
+            <TableOfContents content={post.body.code} />
+          </div>
+        )}
       </div>
     </div>
   );
