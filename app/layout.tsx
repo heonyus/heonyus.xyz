@@ -6,19 +6,19 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "jay.ai",
-    template: "%s | jay.ai",
+    default: "heonyus",
+    template: "%s | heonyus",
   },
   description: "",
   openGraph: {
-    title: "jay.ai",
+    title: "heonyus",
     description:
       "",
-    url: "https://jay.ai",
-    siteName: "jay.ai",
+    url: "https://heonyus.xyz",
+    siteName: "heonyus",
     images: [
       {
-        url: "https://jay.ai/og.png",
+        url: "https://heonyus.xyz/og.png",
         width: 1920,
         height: 1080,
       },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "jay",
+    title: "heonyus",
     card: "summary_large_image",
   },
   icons: {

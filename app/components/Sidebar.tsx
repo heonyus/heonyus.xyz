@@ -48,7 +48,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             <Link href="https://instagram.com/ho.en.y" target="_blank">
               <Instagram size={20} className="text-purple-200 hover:text-white" />
             </Link>
-            <Link href="https://github.com/sparkerhoney" target="_blank">
+            <Link href="https://github.com/heonyus" target="_blank">
               <Github size={20} className="text-purple-200 hover:text-white" />
             </Link>
             <Link href="https://www.linkedin.com/in/honey-jeong-560ab3294/" target="_blank">

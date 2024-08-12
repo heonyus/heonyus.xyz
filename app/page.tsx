@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 const navigation = [
   { name: "Contact", href: "/contact" },
   { name: "Blog", href: "/blog" },
-  { name: "CV", href: "/CV.pdf", target: "_blank" }, // CV link changed to PDF file
+  { name: "CV", href: "/CV.pdf", target: "_blank" },
 ];
 
 const Home: React.FC = () => {
@@ -57,8 +57,12 @@ const Home: React.FC = () => {
 
   const toggleLanguage = () => {
     setIsRotating(true);
+    setLanguage(prevLang => {
+      const newLang = prevLang === 'en' ? 'ko' : 'en';
+      console.log('Language changed to:', newLang); // 디버깅을 위한 로그
+      return newLang;
+    });
     setTimeout(() => {
-      setLanguage(prev => prev === 'en' ? 'ko' : 'en');
       setIsRotating(false);
     }, 500); // 회전 애니메이션 시간과 일치
   };
@@ -76,7 +80,7 @@ const Home: React.FC = () => {
                   key={item.href}
                   href={item.href}
                   className="underline font-extrabold text-sm duration-500 text-pink-100 hover:text-purple-200"
-                  target={item.target} // Added target prop
+                  target={item.target}
                 >
                   {item.name}
                 </Link>
@@ -93,7 +97,7 @@ const Home: React.FC = () => {
               I am exploring{" "}
               <Link
                 target="_blank"
-                href="https://github.com/sparkerhoney"
+                href="https://github.com/heonyus"
                 className="underline font-extrabold text-pink-100 duration-500 hover:text-purple-200"
               >
                 AI

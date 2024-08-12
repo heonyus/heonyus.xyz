@@ -477,7 +477,7 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
         <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
           {language === 'en' ? 'Personal Information' : 'Personal Information'}
         </h2>
-        <PersonalInformation />
+        <PersonalInformation language={language} />
 
         <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
           {language === 'en' ? 'Stacks' : 'Stacks'}

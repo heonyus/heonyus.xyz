@@ -2,9 +2,38 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const PersonalInformation: React.FC = () => {
+interface PersonalInformationProps {
+  language: 'en' | 'ko';
+}
+
+const PersonalInformation: React.FC<PersonalInformationProps> = React.memo(({ language }) => {
+  const educationData = {
+    en: [
+      { date: "2024.08", event: "MJU, Graduated <span className='text-yellow-300 font-bold'>Summa Cum Laude</span> in Industrial Management Engineering" },
+      { date: "2022.03", event: "MJU, Transferred to Industrial Management Engineering" },
+      { date: "2019.02", event: "DIMA, Withdrew from Acting Major" },
+      { date: "2018.03", event: "DIMA, Entered Acting Major" },
+      { date: "2017.02", event: "Gwan-ak High School, Graduated" },
+      { date: "2014.03", event: "Gwan-ak High School, Entered" }
+    ],
+    ko: [
+      { date: "2024.08", event: "명지대학교, 산업경영공학과 <span className='text-yellow-300 font-bold'>수석졸업</span>" },
+      { date: "2022.03", event: "명지대학교, 산업경영공학과 편입" },
+      { date: "2019.02", event: "동아방송예술대학교, 연기과 자퇴" },
+      { date: "2018.03", event: "동아방송예술대학교, 연기과 입학" },
+      { date: "2017.02", event: "관악고등학교, 졸업" },
+      { date: "2014.03", event: "관악고등학교, 입학" }
+    ]
+  };
+
+  // language prop이 유효한지 확인
+  const currentLanguage = language in educationData ? language : 'en';
+
+  console.log('Current language:', currentLanguage); // 디버깅을 위한 로그
+
   return (
     <motion.div
+      key={currentLanguage} // 언어가 변경될 때 애니메이션을 다시 실행하기 위해
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -29,25 +58,26 @@ const PersonalInformation: React.FC = () => {
               <p className="text-purple-100"><b>Birth:</b> 1999. 01. 19</p>
               <p className="text-purple-100"><b>E-mail:</b> heonyus@gmail.com</p>
               <p className="text-purple-100">
-                GitHub: <Link href="https://github.com/sparkerhoney" className="underline">sparkerhoney</Link>
+                GitHub: <Link href="https://github.com/heonyus" className="underline">heonyus</Link>
               </p>
               <h3 className="font-semibold text-white mt-2 mb-1">🪖 Military Service</h3>
               <p className="text-purple-100"><b>Period:</b> 2020.04 - 2021.10 Auxiliary Policeman (Seoul Metropolitan Police Agency, 3rd Mobile Unit)</p>
             </div>
             <div>
               <h3 className="font-semibold text-white mb-1">📚 Education</h3>
-              <p className="text-purple-100"><b>2024.08</b> MJU, <b>Graduated</b> <span className='font-bold text-blue-200'>Summa Cum Laude</span> in Industrial Management Engineering</p>
-              <p className="text-purple-100"><b>2022.03</b> MJU, <b>Transferred</b> to Industrial Management Engineering</p>
-              <p className="text-purple-100"><b>2019.02</b> DIMA, <b>Withdrew</b> from Acting Major</p>
-              <p className="text-purple-100"><b>2018.03</b> DIMA, <b>Entered</b> Acting Major</p>
-              <p className="text-purple-100"><b>2017.02</b> Gwan-ak High School, <b>Graduated</b></p>
-              <p className="text-purple-100"><b>2014.03</b> Gwan-ak High School, <b>Entered</b></p>
+              {educationData[currentLanguage].map((item, index) => (
+                <p key={index} className="text-purple-100">
+                  <b>{item.date}</b> <span dangerouslySetInnerHTML={{ __html: item.event }} />
+                </p>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </motion.div>
   );
-}
+});
+
+PersonalInformation.displayName = 'PersonalInformation';
 
 export default PersonalInformation;
