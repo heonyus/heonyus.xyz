@@ -9,7 +9,7 @@ interface PersonalInformationProps {
 const PersonalInformation: React.FC<PersonalInformationProps> = React.memo(({ language }) => {
   const educationData = {
     en: [
-      { date: "2024.08", event: ["MJU, Graduated ", <span key="summa" className="text-blue-200 font-bold">Summa Cum Laude</span>, " in Industrial Management Engineering"] },
+      { date: "2024.08", event: ["MJU, Graduated ", <span key="summa" className="text-blue-100 font-bold">Summa Cum Laude</span>, " in Industrial Management Engineering"] },
       { date: "2022.03", event: "MJU, Transferred to Industrial Management Engineering" },
       { date: "2019.02", event: "DIMA, Withdrew from Acting Major" },
       { date: "2018.03", event: "DIMA, Entered Acting Major" },
@@ -17,7 +17,7 @@ const PersonalInformation: React.FC<PersonalInformationProps> = React.memo(({ la
       { date: "2014.03", event: "Gwan-ak High School, Entered" }
     ],
     ko: [
-      { date: "2024.08", event: ["명지대학교, 산업경영공학과 ", <span key="summa" className="text-blue-200 font-bold">수석졸업</span>] },
+      { date: "2024.08", event: ["명지대학교, 산업경영공학과 ", <span key="summa" className="text-blue-100 font-bold">수석졸업</span>] },
       { date: "2022.03", event: "명지대학교, 산업경영공학과 편입" },
       { date: "2019.02", event: "동아방송예술대학교, 연기과 자퇴" },
       { date: "2018.03", event: "동아방송예술대학교, 연기과 입학" },
