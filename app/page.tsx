@@ -12,11 +12,14 @@ const navigation = [
   { name: "CV", href: "/CV.pdf", target: "_blank" }, // CV link changed to PDF file
 ];
 
-export default function Home() {
+const Home: React.FC = () => {
   const [animationComplete, setAnimationComplete] = useState(false);
   const [showScrollArrow, setShowScrollArrow] = useState(false);
   const [showTopButton, setShowTopButton] = useState(false);
+  const [showLanguageButton, setShowLanguageButton] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [language, setLanguage] = useState<'en' | 'ko'>('en');
+  const [isRotating, setIsRotating] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -34,8 +37,10 @@ export default function Home() {
       }
       if (window.pageYOffset > 300) {
         setShowTopButton(true);
+        setShowLanguageButton(true);
       } else {
         setShowTopButton(false);
+        setShowLanguageButton(false);
       }
     };
 
@@ -48,6 +53,14 @@ export default function Home() {
       top: 0,
       behavior: 'smooth'
     });
+  };
+
+  const toggleLanguage = () => {
+    setIsRotating(true);
+    setTimeout(() => {
+      setLanguage(prev => prev === 'en' ? 'ko' : 'en');
+      setIsRotating(false);
+    }, 500); // 회전 애니메이션 시간과 일치
   };
 
   return (
@@ -118,7 +131,7 @@ export default function Home() {
         />
       </div>
       <div className="relative z-10">
-        <Resume />
+        <Resume language={language} />
       </div>
 
       {showTopButton && (
@@ -133,6 +146,35 @@ export default function Home() {
           </svg>
         </motion.button>
       )}
+
+      {showLanguageButton && (
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          onClick={toggleLanguage}
+          className="fixed bottom-8 left-8 z-50 group"
+        >
+          <div className="relative">
+            <div className="bg-white text-purple-600 font-bold p-3 rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300">
+              {language === 'en' ? 'KO' : 'EN'}
+            </div>
+            <svg 
+              className={`absolute -top-1 -left-1 w-[calc(100%+8px)] h-[calc(100%+8px)] ${isRotating ? 'animate-spin' : ''}`} 
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" fill="none" />
+              <path 
+                stroke="white"
+                strokeWidth="2"
+                fill="none"
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10"
+              />
+            </svg>
+          </div>
+        </motion.button>
+      )}
     </div>
   );
-}
+};
+
+export default Home;
