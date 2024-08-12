@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import TagCloud from './TagCloud';
+import { Instagram, Github, Linkedin } from "lucide-react";
 
 interface SidebarProps {
   categoryStructure: Record<string, string[]>;
@@ -42,6 +43,17 @@ const Sidebar: React.FC<SidebarProps> = ({
           <div className="text-xs text-purple-200">
             <p>Birth: 1999. 01. 19</p>
             <p>Email: lhe339@gmail.com</p>
+          </div>
+          <div className="flex justify-center space-x-4 mt-2">
+            <Link href="https://instagram.com/ho.en.y" target="_blank">
+              <Instagram size={20} className="text-purple-200 hover:text-white" />
+            </Link>
+            <Link href="https://github.com/sparkerhoney" target="_blank">
+              <Github size={20} className="text-purple-200 hover:text-white" />
+            </Link>
+            <Link href="https://www.linkedin.com/in/honey-jeong-560ab3294/" target="_blank">
+              <Linkedin size={20} className="text-purple-200 hover:text-white" />
+            </Link>
           </div>
         </div>
       </div>

@@ -55,7 +55,7 @@ export default function Home() {
       <div className="sticky top-0 flex flex-col items-center justify-center h-screen overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-green-500 rounded-full filter blur-xl opacity-50 animate-pulse"></div>
-        <div className="flex flex-col items-center space-y-4 sm:space-y-6">
+        <div className="flex flex-col items-center space-y-8 sm:space-y-12">
           <nav className="animate-fade-in z-10">
             <ul className="flex items-center justify-center gap-4">
               {navigation.map((item) => (
@@ -71,7 +71,7 @@ export default function Home() {
             </ul>
           </nav>
           
-          <h1 className="z-10 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display">
+          <h1 className="z-10 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display px-4 text-center">
             JAY
           </h1>
           
@@ -95,7 +95,7 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="absolute bottom-8 sm:bottom-10 z-10"
+            className="absolute bottom-16 sm:bottom-20 z-10"
           >
             <svg
               className="w-8 h-8 sm:w-10 sm:h-10 text-white animate-bounce"

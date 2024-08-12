@@ -1,16 +1,10 @@
 "use client";
-import { Github, Mail, Instagram } from "lucide-react";
+import { Github, Mail, Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Particles from "../components/particles";
 
 const socials = [
-	{
-		icon: <Instagram size={20} />,
-		href: "https://instagram.com/ho.en.y",
-		label: "Instagram",
-		handle: "@ho.en.y",
-	},
 	{
 		icon: <Mail size={20} />,
 		href: "mailto:lhe339@gmail.com",
@@ -22,6 +16,12 @@ const socials = [
 		href: "https://github.com/sparkerhoney",
 		label: "Github",
 		handle: "sparkerhoney",
+	},
+	{
+		icon: <Linkedin size={20} />,
+		href: "https://www.linkedin.com/in/honey-jeong-560ab3294/",
+		label: "LinkedIn",
+		handle: "Honey Jeong",
 	},
 ];
 
