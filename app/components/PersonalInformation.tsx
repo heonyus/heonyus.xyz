@@ -31,12 +31,12 @@ const PersonalInformation: React.FC = () => {
               <p className="text-purple-100">
                 GitHub: <Link href="https://github.com/sparkerhoney" className="underline">sparkerhoney</Link>
               </p>
-              <h3 className="font-semibold text-white mt-2 mb-1">🫡 Military Service</h3>
+              <h3 className="font-semibold text-white mt-2 mb-1">🪖 Military Service</h3>
               <p className="text-purple-100"><b>Period:</b> 2020.04 - 2021.10 Auxiliary Policeman (Seoul Metropolitan Police Agency, 3rd Mobile Unit)</p>
             </div>
             <div>
               <h3 className="font-semibold text-white mb-1">📚 Education</h3>
-              <p className="text-purple-100"><b>2024.08</b> MJU, <b>Graduated</b> <span className='font-bold text-blue-300'>Summa Cum Laude</span> in Industrial Management Engineering</p>
+              <p className="text-purple-100"><b>2024.08</b> MJU, <b>Graduated</b> <span className='font-bold text-blue-200'>Summa Cum Laude</span> in Industrial Management Engineering</p>
               <p className="text-purple-100"><b>2022.03</b> MJU, <b>Transferred</b> to Industrial Management Engineering</p>
               <p className="text-purple-100"><b>2019.02</b> DIMA, <b>Withdrew</b> from Acting Major</p>
               <p className="text-purple-100"><b>2018.03</b> DIMA, <b>Entered</b> Acting Major</p>

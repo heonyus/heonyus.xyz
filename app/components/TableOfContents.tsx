@@ -14,6 +14,21 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ headings }) => {
   const tocRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 100], [0, 20]);
+  const [isVisible, setIsVisible] = useState(true);
+
+  // 창 크기 변경 감지를 위한 상태 추가
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      setIsVisible(window.innerWidth >= 1024);
+    };
+
+    handleResize(); // 초기 실행
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const renderHeadings = useMemo(() => {
     let numbering: number[] = [0];
@@ -71,10 +86,12 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ headings }) => {
     setActiveId('');
   }, [pathname]);
 
+  if (!isVisible) return null;
+
   return (
     <motion.div
       ref={tocRef}
-      className={`fixed right-4 top-24 z-50 w-64 bg-white/10 backdrop-blur-lg rounded-lg p-4 transition-all duration-300 ease-in-out ${
+      className={`fixed right-4 top-24 z-50 w-30 sm:w-40 md:w-60 bg-white/10 backdrop-blur-lg rounded-lg p-4 transition-all duration-300 ease-in-out ${
         isMinimized ? 'w-12 h-12 overflow-hidden' : ''
       }`}
       style={{ y }}
@@ -87,7 +104,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ headings }) => {
           <span className="text-sm font-bold">LIST</span>
         </button>
       ) : (
-        <div className="p-3 overflow-y-auto max-h-full">
+        <div className="p-3 overflow-y-auto max-h-[calc(100vh-8rem)]">
           <div className="flex justify-between items-center mb-2">
             <button
               onClick={() => setIsMinimized(true)}
@@ -96,7 +113,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ headings }) => {
               <span className="text-white text-xs font-bold">−</span>
             </button>
           </div>
-          <ul className="space-y-1 pr-2">
+          <ul className="space-y-1 pr-2 text-xs sm:text-sm list-none">
             {renderHeadings}
           </ul>
         </div>
