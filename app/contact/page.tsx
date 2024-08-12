@@ -17,12 +17,12 @@ const socials = [
 		label: "Email",
 		handle: "lhe339@gmail.com",
 	},
-	// {
-	// 	icon: <Github size={20} />,
-	// 	href: "https://github.com/sparkerhoney",
-	// 	label: "Github",
-	// 	handle: "sparkerhoney",
-	// },
+	{
+		icon: <Github size={20} />,
+		href: "https://github.com/sparkerhoney",
+		label: "Github",
+		handle: "sparkerhoney",
+	},
 ];
 
 export default function Contact() {

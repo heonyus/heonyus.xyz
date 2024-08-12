@@ -46,152 +46,80 @@ const ResumeSection = ({ children, delay = 0 }: ResumeSectionProps) => {
   );
 };
 
-// const Resume: React.FC = () => {
-//   const timelineEvents: TimelineEvent[] = [
-//     {
-//       date: "2018.02-2019.08",
-//       title: "Dong-Ah Institute of Media and Arts",
-//       description: "Enrolled and withdrew from Acting major"
-//     },
-//     {
-//       date: "2020.03-2021.10",
-//       title: "Seoul Metropolitan Police Agency",
-//       description: "Enlisted and discharged from 3rd Mobile Unit"
-//     },
-//     {
-//       date: "2022.02-2024.06",
-//       title: "Myongji University",
-//       description: "Transferred to Industrial and Management Engineering (Expected graduation)"
-//     },
-//     {
-//       date: "2022.09-2023.08",
-//       title: "Computational Data Science Lab",
-//       description: "Undergraduate researcher at Myongji University"
-//     },
-//     {
-//       date: "2023.02-2024.02",
-//       title: "Data Science Club 'FoM'",
-//       description: "Founder and President at Myongji University"
-//     },
-//     {
-//       date: "2023.09-2024.02",
-//       title: "Market Designers - Tutoring",
-//       description: "AI Researcher and Prompt Engineer"
-//     },
-//     {
-//       date: "2024.03-",
-//       title: "Lingora AI Innovation Team",
-//       description: "AI Researcher and MLOps Engineer"
-//     }
-//   ];
-
-//   const awards = [
-//     { title: "Myongji University Learning Community Scholarship", date: "2022.06", description: "" },
-//     { title: "Myongji University Data Analytics Competition Excellence Award", date: "2022.12", description: "" },
-//     { title: "Myongji University Data Analytics TA Social Advancement Scholarship", date: "2022.12", description: "" },
-//     { title: "Myongji University Capstone Design Graduation Project Grand Prize", date: "2023.06", description: "" },
-//     { title: "Myongji University Data Science Club 'FoM' Step 2 Completion", date: "2023.08", description: "" },
-//     { title: "National Assembly Public Data Competition Finalist", date: "2023.12", description: "Under review" },
-//     { title: "Myongji University On-site Training Review Competition Grand Prize", date: "2024.01", description: "" }
-//   ];
-
-//   const skills = [
-//     { name: "Python", level: 90 },
-//     { name: "Machine Learning", level: 85 },
-//     { name: "Deep Learning", level: 80 },
-//     { name: "Data Analysis", level: 85 },
-//     { name: "Web Development", level: 75 },
-//     { name: "Database Management", level: 70 }
-//   ];
-
-//   const projects = [
-//     {
-//       title: "AI Tutor Development",
-//       description: "Developing an AI-powered tutoring application",
-//       technologies: ["Python", "Machine Learning", "NLP"],
-//       link: "#"
-//     },
-//     {
-//       title: "Data Science Club Projects",
-//       description: "Various projects completed as part of the FoM Data Science club",
-//       technologies: ["Python", "Data Analysis", "Visualization"],
-//       link: "#"
-//     }
-//   ];
-
-
 const Resume: React.FC = () => {
   const timelineEvents: TimelineEvent[] = [
     {
-      date: "20XX.XX-20XX.XX",
-      title: "University A",
-      description: "Enrolled and withdrew from Major A"
+      date: "2018.02-2019.08",
+      title: "Dong-Ah Institute of Media and Arts",
+      description: "Enrolled and withdrew from Acting major"
     },
     {
-      date: "20XX.XX-20XX.XX",
-      title: "Organization B",
-      description: "Worked in Department B"
+      date: "2020.03-2021.10",
+      title: "Seoul Metropolitan Police Agency",
+      description: "Enlisted and discharged from 3rd Mobile Unit"
     },
     {
-      date: "20XX.XX-20XX.XX",
-      title: "University C",
-      description: "Transferred to Major C (Expected graduation)"
+      date: "2022.02-2024.06",
+      title: "Myongji University",
+      description: "Transferred to Industrial and Management Engineering (Expected graduation)"
     },
     {
-      date: "20XX.XX-20XX.XX",
-      title: "Research Lab D",
-      description: "Undergraduate researcher"
+      date: "2022.09-2023.08",
+      title: "Computational Data Science Lab",
+      description: "Undergraduate researcher at Myongji University"
     },
     {
-      date: "20XX.XX-20XX.XX",
-      title: "Club E",
-      description: "Founder and President"
+      date: "2023.02-2024.02",
+      title: "Data Science Club 'FoM'",
+      description: "Founder and President at Myongji University"
     },
     {
-      date: "20XX.XX-20XX.XX",
-      title: "Company F",
-      description: "Position F"
+      date: "2023.09-2024.02",
+      title: "Market Designers - Tutoring",
+      description: "AI Researcher and Prompt Engineer"
     },
     {
-      date: "20XX.XX-",
-      title: "Company G",
-      description: "Position G"
+      date: "2024.03-",
+      title: "Lingora AI Innovation Team",
+      description: "AI Researcher and MLOps Engineer"
     }
   ];
 
   const awards = [
-    { title: "University A Scholarship", date: "20XX.XX", description: "" },
-    { title: "Competition B Excellence Award", date: "20XX.XX", description: "" },
-    { title: "Scholarship C", date: "20XX.XX", description: "" },
-    { title: "Project D Grand Prize", date: "20XX.XX", description: "" },
-    { title: "Club E Completion", date: "20XX.XX", description: "" },
-    { title: "Competition F Finalist", date: "20XX.XX", description: "Under review" },
-    { title: "Competition G Grand Prize", date: "20XX.XX", description: "" }
+    { title: "Myongji University Learning Community Scholarship", date: "2022.06", description: "" },
+    { title: "Myongji University Data Analytics Competition Excellence Award", date: "2022.12", description: "" },
+    { title: "Myongji University Data Analytics TA Social Advancement Scholarship", date: "2022.12", description: "" },
+    { title: "Myongji University Capstone Design Graduation Project Grand Prize", date: "2023.06", description: "" },
+    { title: "Myongji University Data Science Club 'FoM' Step 2 Completion", date: "2023.08", description: "" },
+    { title: "National Assembly Public Data Competition Finalist", date: "2023.12", description: "Under review" },
+    { title: "Myongji University On-site Training Review Competition Grand Prize", date: "2024.01", description: "" }
   ];
 
   const skills = [
-    { name: "Skill A", level: 90 },
-    { name: "Skill B", level: 85 },
-    { name: "Skill C", level: 80 },
-    { name: "Skill D", level: 85 },
-    { name: "Skill E", level: 75 },
-    { name: "Skill F", level: 70 }
+    { name: "Python", level: 90 },
+    { name: "Machine Learning", level: 85 },
+    { name: "Deep Learning", level: 80 },
+    { name: "Data Analysis", level: 85 },
+    { name: "Web Development", level: 75 },
+    { name: "Database Management", level: 70 }
   ];
 
   const projects = [
     {
-      title: "Project A Development",
-      description: "Developing an application using Technology A",
-      technologies: ["Technology X", "Technology Y", "Technology Z"],
+      title: "AI Tutor Development",
+      description: "Developing an AI-powered tutoring application",
+      technologies: ["Python", "Machine Learning", "NLP"],
       link: "#"
     },
     {
-      title: "Club Projects",
-      description: "Various projects completed as part of Club E",
-      technologies: ["Technology P", "Technology Q", "Technology R"],
+      title: "Data Science Club Projects",
+      description: "Various projects completed as part of the FoM Data Science club",
+      technologies: ["Python", "Data Analysis", "Visualization"],
       link: "#"
     }
   ];
+
+
   
   return (
     <div className="min-h-screen p-4 sm:p-8">
