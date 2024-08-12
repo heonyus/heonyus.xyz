@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 const navigation = [
   { name: "Contact", href: "/contact" },
   { name: "Blog", href: "/blog" },
+  { name: "CV", href: "/CV.pdf", target: "_blank" }, // CV link changed to PDF file
 ];
 
 export default function Home() {
@@ -62,6 +63,7 @@ export default function Home() {
                   key={item.href}
                   href={item.href}
                   className="underline font-extrabold text-sm duration-500 text-pink-100 hover:text-purple-200"
+                  target={item.target} // Added target prop
                 >
                   {item.name}
                 </Link>
@@ -70,7 +72,7 @@ export default function Home() {
           </nav>
           
           <h1 className="z-10 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 cursor-default animate-title font-display">
-            Jay
+            JAY
           </h1>
           
           <div className="text-center animate-fade-in px-4 max-w-lg">

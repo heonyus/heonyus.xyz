@@ -16,7 +16,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="space-y-8"
+      className="space-y-4"
     >
       {posts.map((post, index) => (
         <motion.div

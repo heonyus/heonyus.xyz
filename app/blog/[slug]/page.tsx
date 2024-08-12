@@ -4,6 +4,12 @@ import { Navigation } from '../../components/nav';
 import Particles from '../../components/particles';
 import { Mdx } from '../../components/mdx';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+import BlogPostNavigation from '../../components/BlogPostNavigation';
+
+const motion = dynamic(() => import('framer-motion').then((mod) => mod.motion), {
+  ssr: false,
+});
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
   const decodedSlug = decodeURIComponent(params.slug);
@@ -37,6 +43,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
             <div className="text-sm text-purple-200 mb-2">
               {new Date(post.date).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}
             </div>
+            
             {post.tags && (
               <div className="flex flex-wrap gap-2 mb-4">
                 {post.tags.map(tag => (
@@ -56,24 +63,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         </div>
       </div>
 
-      <div className="fixed inset-x-0 bottom-20 z-30 pointer-events-none">
-        <div className="container mx-auto px-4 flex justify-between">
-          {adjacentPosts.prev && (
-            <Link href={`/blog/${adjacentPosts.prev.slug}`} className="pointer-events-auto">
-              <button className="bg-purple-600 text-white p-2 rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-300">
-                이전
-              </button>
-            </Link>
-          )}
-          {adjacentPosts.next && (
-            <Link href={`/blog/${adjacentPosts.next.slug}`} className="pointer-events-auto ml-auto">
-              <button className="bg-purple-600 text-white p-2 rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-300">
-                다음
-              </button>
-            </Link>
-          )}
-        </div>
-      </div>
+      <BlogPostNavigation adjacentPosts={adjacentPosts} />
 
       <Link href="/" className="fixed bottom-8 right-8 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition-colors duration-300 z-20">
         🏠

@@ -86,13 +86,47 @@ const Resume: React.FC = () => {
   ];
 
   const awards = [
-    { title: "Myongji University Learning Community Scholarship", date: "2022.06", description: "" },
-    { title: "Myongji University Data Analytics Competition Excellence Award", date: "2022.12", description: "" },
-    { title: "Myongji University Data Analytics TA Social Advancement Scholarship", date: "2022.12", description: "" },
-    { title: "Myongji University Capstone Design Graduation Project Grand Prize", date: "2023.06", description: "" },
-    { title: "Myongji University Data Science Club 'FoM' Step 2 Completion", date: "2023.08", description: "" },
-    { title: "National Assembly Public Data Competition Finalist", date: "2023.12", description: "Under review" },
-    { title: "Myongji University On-site Training Review Competition Grand Prize", date: "2024.01", description: "" }
+    { 
+      title: "Summa Cum Laude in Industrial Management Engineering", 
+      date: "2024.08", 
+      description: "Awarded within Myongji University" 
+    },
+    {
+      title: "National Assembly Public Data Competition - Commendation Award", 
+      date: "2024.07", 
+      description: "Awarded by the National Assembly of the Republic of Korea" 
+    },
+    { 
+      title: "Myongji University On-site Training Review Competition Grand Prize", 
+      date: "2024.01", 
+      description: "Awarded within Myongji University" 
+    },
+    { 
+      title: "Myongji University Data Science Club 'FoM' Step 2 Completion", 
+      date: "2023.08", 
+      description: "Awarded within Myongji University" 
+    },
+    { 
+      title: "Myongji University Capstone Design Graduation Project Grand Prize", 
+      date: "2023.06", 
+      description: "Awarded within Myongji University" 
+    },
+    { 
+      title: "Myongji University Data Analytics TA Social Advancement Scholarship", 
+      date: "2022.12", 
+      description: "Awarded within Myongji University" 
+    },
+    { 
+      title: "Myongji University Data Analytics Competition Excellence Award", 
+      date: "2022.12", 
+      description: "Awarded within Myongji University" 
+    },
+    { 
+      title: "Myongji University Learning Community Scholarship", 
+      date: "2022.06", 
+      description: "Awarded within Myongji University" 
+    }
+    
   ];
 
   const skills = [
@@ -130,12 +164,16 @@ const Resume: React.FC = () => {
           </h2>
           <PersonalInformation />
 
-
-
           <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
-            Time Line
+            Stacks
           </h2>
-          <Timeline events={timelineEvents} />
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 shadow-lg w-full max-w-4xl mx-auto">
+            <img 
+              src="https://skillicons.dev/icons?i=py,pytorch,tensorflow,aws,figma,gcp,git,github,html,css,supabase,mysql,postgresql,js,ts" 
+              alt="skills logos" 
+              className="max-w-full"
+            />
+          </div>
 
           <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
           Projects
@@ -146,12 +184,16 @@ const Resume: React.FC = () => {
             Awards
           </h2>
           <AwardGallery awards={awards} />
-        
 
           <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
+            Time Line
+          </h2>
+          <Timeline events={timelineEvents} />
+        
+          {/* <h2 className="py-2 sm:py-3 px-0.5 z-10 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 font-bold duration-100 cursor-default animate-title font-display md:text-4xl lg:text-5xl whitespace-normal sm:whitespace-nowrap">
             Skills
           </h2>
-          <SkillChart skills={skills} />
+          <SkillChart skills={skills} /> */}
       </div>
     </div>
   );

@@ -15,9 +15,10 @@ interface BlogPageClientProps {
   initialPosts: Post[];
   initialTags: string[];
   categories: string[];
+  categoryStructure: Record<string, string[]>;
 }
 
-export default function BlogPageClient({ initialPosts, initialTags, categories }: BlogPageClientProps) {
+export default function BlogPageClient({ initialPosts, initialTags, categories, categoryStructure }: BlogPageClientProps) {
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -40,31 +41,7 @@ export default function BlogPageClient({ initialPosts, initialTags, categories }
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
-  const groupedPosts = {};
-  initialPosts.forEach(post => {
-    if (!groupedPosts[post.category]) {
-      groupedPosts[post.category] = [];
-    }
-    groupedPosts[post.category].push(post);
-  });
-
-  const categoryStructure = useMemo(() => {
-    const structure = {};
-    initialPosts.forEach(post => {
-      const parts = post.slug.split('/');
-      let currentLevel = structure;
-      parts.forEach((part, index) => {
-        if (index === parts.length - 1) {
-          if (!currentLevel[part]) currentLevel[part] = [];
-          currentLevel[part].push(post);
-        } else {
-          if (!currentLevel[part]) currentLevel[part] = {};
-          currentLevel = currentLevel[part];
-        }
-      });
-    });
-    return structure;
-  }, [initialPosts]);
+  console.log('BlogPageClient categoryStructure:', categoryStructure); // 디버깅용 로그
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-gradient-to-tl from-purple-900 via-pink-500 to-orange-500">
@@ -90,7 +67,7 @@ export default function BlogPageClient({ initialPosts, initialTags, categories }
           <div className="flex mt-20 h-full overflow-hidden">
             <div className="hidden md:block w-1/6 lg:w-1/5 xl:w-64 bg-opacity-20 backdrop-filter backdrop-blur-lg z-30 overflow-y-auto fixed left-0 top-20 bottom-0 pt-4 transition-all duration-300 scrollbar-hide">
               <Sidebar 
-                categoryStructure={categoryStructure}
+                categoryStructure={categoryStructure || {}}
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
                 tags={initialTags}
