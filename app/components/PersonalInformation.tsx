@@ -36,12 +36,12 @@ const PersonalInformation: React.FC = () => {
             </div>
             <div>
               <h3 className="font-semibold text-white mb-1">📚 Education</h3>
-              <p className="text-purple-100"><b>2024.08</b> MJU, Graduated <span className='font-bold text-blue-300'>Summa Cum Laude</span> in Industrial Management Engineering</p>
-              <p className="text-purple-100"><b>2022.03</b> MJU, Transferred to Industrial Management Engineering</p>
-              <p className="text-purple-100"><b>2019.02</b> DIMA, Withdrew from Acting Major</p>
-              <p className="text-purple-100"><b>2018.03</b> DIMA, Entered Acting Major</p>
-              <p className="text-purple-100"><b>2017.02</b> Gwan-ak High School, Graduated</p>
-              <p className="text-purple-100"><b>2014.03</b> Gwan-ak High School, Entered</p>
+              <p className="text-purple-100"><b>2024.08</b> MJU, <b>Graduated</b> <span className='font-bold text-blue-300'>Summa Cum Laude</span> in Industrial Management Engineering</p>
+              <p className="text-purple-100"><b>2022.03</b> MJU, <b>Transferred</b> to Industrial Management Engineering</p>
+              <p className="text-purple-100"><b>2019.02</b> DIMA, <b>Withdrew</b> from Acting Major</p>
+              <p className="text-purple-100"><b>2018.03</b> DIMA, <b>Entered</b> Acting Major</p>
+              <p className="text-purple-100"><b>2017.02</b> Gwan-ak High School, <b>Graduated</b></p>
+              <p className="text-purple-100"><b>2014.03</b> Gwan-ak High School, <b>Entered</b></p>
             </div>
           </div>
         </div>

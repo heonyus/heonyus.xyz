@@ -6,6 +6,8 @@ interface Project {
   description: string;
   technologies: string[];
   link: string;
+  date: string;
+  keyAchievements: string[];
 }
 
 interface ProjectShowcaseProps {
@@ -19,22 +21,32 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) =>
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="space-y-4">
+      <div className="space-y-6">
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-white/10 backdrop-blur-sm rounded-lg p-4 shadow-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="bg-white/10 backdrop-blur-sm rounded-lg p-6 shadow-lg"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             <motion.h3 
-              className="text-xl font-bold mb-2 text-purple-200"
+              className="text-2xl font-bold mb-2 text-purple-200"
               whileHover={{ color: "#A7EDB8" }}
             >
               {project.title}
             </motion.h3>
             <p className="text-white/80 mb-4">{project.description}</p>
+            <p className="text-white/70 mb-4">기간: {project.date}</p>
+            <div className="mb-4">
+              <h4 className="text-lg font-semibold text-purple-200 mb-2">주요 성과:</h4>
+              <ul className="list-disc list-inside text-white/80">
+                {project.keyAchievements.map((achievement, achIndex) => (
+                  <li key={achIndex}>{achievement}</li>
+                ))}
+              </ul>
+            </div>
             <div className="flex flex-wrap gap-2 mb-4">
+              <h4 className="text-lg font-semibold text-purple-200 mr-2">기술 스택:</h4>
               {project.technologies.map((tech, techIndex) => (
                 <span key={techIndex} className="bg-white/20 text-purple-200 text-xs px-2 py-1 rounded">
                   {tech}
@@ -45,10 +57,10 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) =>
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:underline"
+              className="text-white hover:underline inline-block mt-2"
               whileHover={{ color: "#A7EDB8" }}
             >
-              View Project
+              프로젝트 보기
             </motion.a>
           </motion.div>
         ))}

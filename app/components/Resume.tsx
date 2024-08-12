@@ -140,16 +140,124 @@ const Resume: React.FC = () => {
 
   const projects = [
     {
-      title: "AI Tutor Development",
-      description: "Developing an AI-powered tutoring application",
-      technologies: ["Python", "Machine Learning", "NLP"],
-      link: "#"
+      title: "Development of Personal Knowledge Model to Understand Learner's Persona",
+      description: "Developed a model that extracts and manages personal knowledge about learners, allowing the AI to engage in more personalized conversations during tutoring sessions.",
+      technologies: ["GPT-3.5", "Personal Knowledge Management", "Python", "MLOps"],
+      link: "#", // hypothetical link
+      date: "Sep. 2023 - Present",
+      keyAchievements: [
+        "Implemented a knowledge extraction module with GPT-3.5 API.",
+        "Optimized personal knowledge management using a multi-domain approach.",
+        "Improved AI tutoring personalization through effective knowledge integration."
+      ]
     },
     {
-      title: "Data Science Club Projects",
-      description: "Various projects completed as part of the FoM Data Science club",
-      technologies: ["Python", "Data Analysis", "Visualization"],
-      link: "#"
+      title: "Open-end Chat Modifier Model Development and Deployment",
+      description: "Built and deployed a model that modifies the output of AI chat systems, enabling the generation of more context-aware follow-up questions in conversations.",
+      technologies: ["GPT-3.5", "AWS SageMaker", "Python", "Docker"],
+      link: "#", // hypothetical link
+      date: "Jan. 2024 - Mar. 2024",
+      keyAchievements: [
+        "Achieved efficient context handling in long AI conversations.",
+        "Deployed the model using AWS SageMaker with a rapid response time of 1.7 seconds.",
+        "Implemented a CI/CD pipeline for continuous model updates."
+      ]
+    },
+    {
+      title: "Development of National Assembly Bill Proposal System Using Existing Legislation",
+      description: "Developed a system for the South Korean National Assembly that assists in proposing bills by utilizing existing legislation, contributing to the legislative process.",
+      technologies: ["NLP", "Python", "API Development"],
+      link: "#", // hypothetical link
+      date: "Oct. 2023 - Dec. 2023",
+      keyAchievements: [
+        "Automated the bill proposal process using NLP techniques.",
+        "Enhanced legislative efficiency by integrating existing laws into the system.",
+        "Successfully deployed and tested the system within the National Assembly."
+      ]
+    },
+    {
+      title: "Entity Recognition Search Model Development and LLMOps Engineering System",
+      description: "Engineered a system that evaluates and recommends words based on learner input by embedding their utterances and comparing them with a pre-built word database using cosine similarity.",
+      technologies: ["SBERT", "GPT-4 API", "LLMOps", "Docker", "AWS"],
+      link: "#", // hypothetical link
+      date: "Sep. 2023 - Dec. 2023",
+      keyAchievements: [
+        "Developed a robust entity recognition model with SBERT.",
+        "Improved word recommendation accuracy by over 75%.",
+        "Integrated LLMOps for automated deployment and scaling."
+      ]
+    },
+    {
+      title: "Development of NER - Search Model to Assess Learner's Familiarity with Words and Expressions",
+      description: "Created a Named Entity Recognition (NER) search model to evaluate and improve learners' familiarity with words and expressions, integrating the system into educational tools.",
+      technologies: ["NER", "SBERT", "Python", "LLMOps"],
+      link: "#", // hypothetical link
+      date: "Sep. 2023 - Dec. 2023",
+      keyAchievements: [
+        "Successfully assessed and improved learner vocabulary.",
+        "Incorporated advanced NLP techniques to enhance learning outcomes.",
+        "Streamlined integration with existing educational tools."
+      ]
+    },
+    {
+      title: "Development of Dynamic Prompting that Changes System Messages Based on Textbook Topics",
+      description: "Implemented a dynamic prompting system for educational purposes that adjusts system messages based on textbook topics, improving user interaction with the AI.",
+      technologies: ["GPT-3.5", "Prompt Engineering", "Python"],
+      link: "#", // hypothetical link
+      date: "Sep. 2023 - Nov. 2023",
+      keyAchievements: [
+        "Enhanced AI interaction by dynamically adjusting system prompts.",
+        "Reduced user confusion by aligning prompts with textbook content.",
+        "Improved user satisfaction in educational AI applications."
+      ]
+    },
+    {
+      title: "Development of DX-ASTI Demand-based Service Model Recommendation System",
+      description: "Developed a recommendation system for ASTI (KISTI) that uses pre-trained models like LLaMa2 and various key technologies (KeyBERT, SBERT, CML, and contrastive learning) to extract tailored keywords and enhance service matching accuracy for member companies based on their profiles.",
+      technologies: ["LLaMa2", "KeyBERT", "SBERT", "CML", "Contrastive Learning", "Python"],
+      link: "#", // hypothetical link
+      date: "Mar. 2023 - Aug. 2023",
+      keyAchievements: [
+        "Successfully fine-tuned LLaMa2 for ASTI member company profiles.",
+        "Improved service matching accuracy through tailored keyword extraction.",
+        "Implemented a robust contrastive learning model for enhanced recommendation."
+      ]
+    },
+    {
+      title: "Development of Heterogeneous Domain Integrated Graph Neural Network for Topic Tomography",
+      description: "Created a RAG (Retrieval-Augmented Generation) system for KISTI, which identifies topics within documents and finds the keywords that constitute those topics by analyzing similarities across documents.",
+      technologies: ["SentenceBERT", "Clustering", "Contrastive Learning", "Python"],
+      link: "#", // hypothetical link
+      date: "Jan. 2023 - Aug. 2023",
+      keyAchievements: [
+        "Developed a hybrid embedding structure for improved topic identification.",
+        "Implemented a contrastive learning approach for accurate topic clustering.",
+        "Enhanced document similarity detection through advanced graph neural networks."
+      ]
+    },
+    {
+      title: "Travel Itinerary Scheduling Using Reinforcement Learning and NLP",
+      description: "Designed and implemented a scheduling system for travel itineraries by using reinforcement learning and natural language processing techniques.",
+      technologies: ["Reinforcement Learning", "NLP", "Python"],
+      link: "#", // hypothetical link
+      date: "Mar. 2023 - Jun. 2023",
+      keyAchievements: [
+        "Developed an efficient scheduling algorithm using reinforcement learning.",
+        "Integrated NLP techniques for context-aware itinerary adjustments.",
+        "Successfully tested and validated the system with real-world data."
+      ]
+    },
+    {
+      title: "Development of Reinforcement Learning Model for Power Generation Fuel Consumption Optimization",
+      description: "Developed a reinforcement learning model to measure fuel consumption characteristics and optimize combustion processes, contributing to more efficient power generation.",
+      technologies: ["Reinforcement Learning", "Python"],
+      link: "#", // hypothetical link
+      date: "Oct. 2022 - Dec. 2022",
+      keyAchievements: [
+        "Optimized fuel consumption in power generation through reinforcement learning.",
+        "Implemented a model that significantly reduced operational costs.",
+        "Achieved measurable improvements in combustion efficiency."
+      ]
     }
   ];
 
