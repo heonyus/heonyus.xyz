@@ -27,7 +27,7 @@ const PersonalInformation: React.FC = () => {
             <div>
               <h3 className="font-semibold text-white mt-2 mb-1">🧑🏻‍💻 Information</h3>
               <p className="text-purple-100"><b>Birth:</b> 1999. 01. 19</p>
-              <p className="text-purple-100"><b>E-mail:</b> lhe339@gmail.com</p>
+              <p className="text-purple-100"><b>E-mail:</b> heonyus@gmail.com</p>
               <p className="text-purple-100">
                 GitHub: <Link href="https://github.com/sparkerhoney" className="underline">sparkerhoney</Link>
               </p>

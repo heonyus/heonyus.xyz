@@ -7,9 +7,9 @@ import Particles from "../components/particles";
 const socials = [
 	{
 		icon: <Mail size={20} />,
-		href: "mailto:lhe339@gmail.com",
+		href: "mailto:heonyus@gmail.com",
 		label: "Email",
-		handle: "lhe339@gmail.com",
+		handle: "heonyus@gmail.com",
 	},
 	{
 		icon: <Github size={20} />,

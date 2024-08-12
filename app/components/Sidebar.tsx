@@ -42,7 +42,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           <h2 className="text-xl md:text-2xl font-bold text-white mb-2">Jeong Jae Heon</h2>
           <div className="text-xs text-purple-200">
             <p>Birth: 1999. 01. 19</p>
-            <p>Email: lhe339@gmail.com</p>
+            <p>Email: heonyus@gmail.com</p>
           </div>
           <div className="flex justify-center space-x-4 mt-2">
             <Link href="https://instagram.com/ho.en.y" target="_blank">
