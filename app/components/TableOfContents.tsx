@@ -32,27 +32,36 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ headings }) => {
 
   const renderHeadings = useMemo(() => {
     let numbering: number[] = [0];
+    let isFirstH1 = true;
     
     const getNumbering = (level: number) => {
       while (numbering.length > level) numbering.pop();
       while (numbering.length < level) numbering.push(0);
       numbering[level - 1]++;
-      return numbering.join('.');
+      return numbering.join('.').replace(/^0\./, '');
     };
 
-    return headings.map((heading) => (
-      <li key={heading.id} className={`${heading.level === 1 ? 'text-sm' : 'text-xs'} my-1`}>
-        <a
-          href={`#${heading.id}`}
-          className={`block py-0.5 cursor-pointer hover:text-purple-300`}
-          onClick={() => setActiveId(heading.id)}
-          style={{ color: activeId === heading.id ? 'var(--purple)' : 'inherit' }}
-        >
-          <span className="mr-2 text-purple-300">{`${getNumbering(heading.level)}`}</span>
-          {heading.text}
-        </a>
-      </li>
-    ));
+    return headings
+      .filter(heading => !(heading.level === 1 && isFirstH1))
+      .map((heading) => {
+        if (heading.level === 1) {
+          isFirstH1 = false;
+        }
+
+        return (
+          <li key={heading.id} className={`${heading.level === 1 ? 'text-sm' : 'text-xs'} my-1`}>
+            <a
+              href={`#${heading.id}`}
+              className={`block py-0.5 cursor-pointer hover:text-purple-300`}
+              onClick={() => setActiveId(heading.id)}
+              style={{ color: activeId === heading.id ? 'var(--purple)' : 'inherit' }}
+            >
+              <span className="mr-2 text-purple-300">{`${getNumbering(heading.level)}`}</span>
+              {heading.text}
+            </a>
+          </li>
+        );
+      });
   }, [headings, activeId]);
 
   useEffect(() => {
@@ -91,7 +100,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ headings }) => {
   return (
     <motion.div
       ref={tocRef}
-      className={`fixed right-4 top-24 z-50 w-30 sm:w-40 md:w-60 bg-white/10 backdrop-blur-lg rounded-lg p-4 transition-all duration-300 ease-in-out ${
+      className={`fixed right-4 top-24 z-50 w-30 sm:w-40 md:w-60 bg-white/10 backdrop-blur-lg rounded-lg p-2 transition-all duration-300 ease-in-out ${
         isMinimized ? 'w-12 h-12 overflow-hidden' : ''
       }`}
       style={{ y }}
@@ -104,7 +113,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ headings }) => {
           <span className="text-sm font-bold">LIST</span>
         </button>
       ) : (
-        <div className="p-3 overflow-y-auto max-h-[calc(100vh-8rem)]">
+        <div className="p-2 overflow-y-auto max-h-[calc(100vh-8rem)]">
           <div className="flex justify-between items-center mb-2">
             <button
               onClick={() => setIsMinimized(true)}
