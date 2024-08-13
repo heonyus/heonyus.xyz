@@ -53,7 +53,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) =>
                 </span>
               ))}
             </div>
-            <motion.a
+            {/* <motion.a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -61,7 +61,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) =>
               whileHover={{ color: "#A7EDB8" }}
             >
               View Project
-            </motion.a>
+            </motion.a> */}
           </motion.div>
         ))}
       </div>

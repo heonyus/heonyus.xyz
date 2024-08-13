@@ -227,7 +227,7 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
   const projects = {
     en: [
       {
-        title: "Development of Personal Knowledge Model to Understand Learner's Persona",
+        title: "Development of Personal Knowledge Model to Understand User's Persona",
         description: "Developed a model that extracts and manages personal knowledge about learners, allowing the AI to engage in more personalized conversations during tutoring sessions.",
         technologies: ["GPT-3.5", "Personal Knowledge Management", "Python", "MLOps"],
         link: "#",
@@ -349,75 +349,51 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
     ],
     ko: [
       {
-        title: "학습자의 페르소나를 이해하기 위한 개인 지식 모델 개발",
-        description: "학습자에 대한 개인 지식을 추출하고 관리하는 모델을 개발하여 AI가 튜터링 세션 중 더 개인화된 대화를 할 수 있도록 함.",
-        technologies: ["GPT-3.5", "개인 지식 관리", "Python", "MLOps"],
+        title: "User의 Persona를 이해하기 위한 Personal Knowledge Model 개발",
+        description: "User에 대한 Personal Knowledge를 추출하고 관리하는 모델을 개발하여 AI가 더 개인화된 대화를 할 수 있도록 함.",
+        technologies: ["GPT-3.5", "Personal Knowledge Management", "Python", "MLOps"],
         link: "#",
-        date: "2023년 9월 - 현재",
+        date: "Sep. 2023 - Dec. 2023",
         keyAchievements: [
-          "GPT-3.5 API를 사용한 지식 추출 모듈 구현.",
-          "다중 도메인 접근 방식을 사용한 개인 지식 관리 최적화.",
-          "효과적인 지식 통합을 통한 AI 튜터링 개인화 향상."
+          "GPT-3.5 API를 사용한 Knowledge Extraction Module 구현.",
+          "Multi-Domain Access 방식을 사용한 Personal Knowledge Management Optimization.",
+          "효과적인 Knowledge Integration을 통한 AI Personalization 향상."
         ]
       },
       {
-        title: "개방형 채팅 수정 모델 개발 및 배포",
+        title: "Open-end Chat Modifier Model 개발 및 배포",
         description: "AI 채팅 시스템의 출력을 수정하는 모델을 구축하고 배포하여 대화에서 더 문맥을 고려한 후속 질문을 생성할 수 있도록 함.",
-        technologies: ["GPT-3.5", "AWS SageMaker", "Python", "Docker"],
+        technologies: ["GPT-3.5", "AWS", "Sagemaker", "Python", "Docker"],
         link: "#",
-        date: "2024년 1월 - 3월",
+        date: "Jan. 2024 - Mar. 2024",
         keyAchievements: [
-          "긴 AI 대화에서 효율적인 문맥 처리 달성.",
+          "Long Context AI Chatting에서 효율적인 문맥 처리 달성.",
           "AWS SageMaker를 사용하여 1.7초의 빠른 응답 시간으로 모델 배포.",
-          "지속적인 모델 업데이트를 위한 CI/CD 파이프라인 구현."
+          "Continuous Model Updates를 위한 CI/CD Pipeline 구현."
         ]
       },
       {
         title: "기존 법률을 활용한 국회 의안 제안 시스템 개발",
         description: "기존 법률을 활용하여 의안을 제안하는 시스템을 개발하여 대한민국 국회의 입법 과정에 기여함.",
-        technologies: ["NLP", "Python", "API 개발"],
-        link: "#",
-        date: "2023년 10월 - 12월",
+        technologies: ["RAG", "Python", "API", "MLOps", "Prompt Engineering", "Git"],
+        link: "https://github.com/heonyus/Congress-Competition",
+        date: "Oct. 2023 - Dec. 2023",
         keyAchievements: [
           "NLP 기술을 사용하여 의안 제안 프로세스 자동화.",
           "기존 법률을 시스템에 통합하여 입법 효율성 향상.",
-          "국회 내에서 시스템 성공적으로 배포 및 테스트."
+          "시스템을 성공적으로 배포 및 테스트함."
         ]
       },
       {
-        title: "개체 인식 검색 모델 개발 및 LLMOps 엔지니어링 시스템",
-        description: "학습자 입력을 임베딩하고 사전 구축된 단어 데이터베이스와 코사인 유사도를 비교하여 단어를 평가하고 추천하는 시스템을 설계함.",
-        technologies: ["SBERT", "GPT-4 API", "LLMOps", "Docker", "AWS"],
+        title: "Entity Recognition 모델 개발 및 LLMOps 시스템 개발",
+        description: "User Input을 Embedding하고 사전 구축된 단어 DB와 Cosine Similarity를 비교하여 단어를 평가하고 추천하는 시스템을 설계함.",
+        technologies: ["SBERT", "GPT-4 API", "LLMOps", "Docker", "AWS", "CI/CD"],
         link: "#",
-        date: "2023년 9월 - 12월",
+        date: "Sep. 2023 - Dec. 2023",
         keyAchievements: [
-          "SBERT를 사용하여 강력한 개체 인식 모델 개발.",
-          "단어 추천 정확도를 75% 이상 향상.",
-          "자동화된 배포 및 확장을 위한 LLMOps 통합."
-        ]
-      },
-      {
-        title: "학습자의 단어 및 표현에 대한 친숙도 평가를 위한 NER - 검색 모델 개발",
-        description: "학습자의 단어 및 표현에 대한 친숙도를 평가하고 개선하는 NER(Named Entity Recognition) 검색 모델을 만들어 교육 도구에 통합함.",
-        technologies: ["NER", "SBERT", "Python", "LLMOps"],
-        link: "#",
-        date: "2023년 9월 - 12월",
-        keyAchievements: [
-          "학습자 어휘 성공적으로 평가 및 개선.",
-          "학습 결과를 향상시키기 위한 고급 NLP 기술 도입.",
-          "기존 교육 도구와의 통합 간소화."
-        ]
-      },
-      {
-        title: "교재 주제에 따라 시스템 메시지를 동적으로 변경하는 동적 프롬프팅 개발",
-        description: "교재 주제에 따라 시스템 메시지를 조정하는 동적 프롬프팅 시스템을 구현하여 사용자와 AI 상호 작용을 개선함.",
-        technologies: ["GPT-3.5", "프롬프트 엔지니어링", "Python"],
-        link: "#",
-        date: "2023년 9월 - 11월",
-        keyAchievements: [
-          "시스템 프롬프트를 동적으로 조정하여 AI 상호 작용 향상.",
-          "프롬프트를 교재 내용과 일치시켜 사용자 혼란 감소.",
-          "교육용 AI 애플리케이션에서 사용자 만족도 향상."
+          "SBERT를 사용하여 Strong Entity Recognition Model 개발.",
+          "Word Recommendation Accuracy를 75% 이상 향상.",
+          "Automated Deployment and Scaling for LLMOps with CI/CD."
         ]
       },
       {
@@ -425,9 +401,9 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
         description: "ASTI(KISTI)를 위한 추천 시스템으로, LLaMa2와 같은 사전 학습된 모델 및 다양한 핵심 기술(KeyBERT, SBERT, CML, 대비 학습)을 사용하여 회원사 프로필에 맞는 맞춤형 키워드를 추출하고 서비스 매칭 정확도를 향상시킴.",
         technologies: ["LLaMa2", "KeyBERT", "SBERT", "CML", "대비 학습", "Python"],
         link: "#",
-        date: "2023년 3월 - 8월",
+        date: "Mar. 2023 - Aug. 2023",
         keyAchievements: [
-          "ASTI 회원사 프로필에 대한 LLaMa2 미세 조정 성공.",
+          "ASTI 회원사 프로필에 대한 LLaMa2 fine-tuning.",
           "맞춤형 키워드 추출을 통한 서비스 매칭 정확도 향상.",
           "강화된 추천을 위한 강력한 대비 학습 모델 구현."
         ]
@@ -437,7 +413,7 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
         description: "KISTI를 위한 RAG(Retrieval-Augmented Generation) 시스템으로, 문서 내에서 주제를 식별하고 해당 주제를 구성하는 키워드를 찾아내는 문서 간 유사성 분석을 수행함.",
         technologies: ["SentenceBERT", "클러스터링", "대비 학습", "Python"],
         link: "#",
-        date: "2023년 1월 - 8월",
+        date: "Jan. 2023 - Aug. 2023",
         keyAchievements: [
           "주제 식별을 위한 하이브리드 임베딩 구조 개발.",
           "정확한 주제 클러스터링을 위한 대비 학습 접근 방식 구현.",
@@ -449,7 +425,7 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
         description: "강화 학습 및 자연어 처리 기술을 사용하여 여행 일정 스케줄링 시스템을 설계 및 구현함.",
         technologies: ["강화 학습", "NLP", "Python"],
         link: "#",
-        date: "2023년 3월 - 6월",
+        date: "Mar. 2023 - Jun. 2023",
         keyAchievements: [
           "강화 학습을 사용한 효율적인 스케줄링 알고리즘 개발.",
           "문맥을 고려한 일정 조정을 위한 NLP 기술 통합.",
@@ -461,7 +437,7 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
         description: "연료 소비 특성을 측정하고 연소 프로세스를 최적화하는 강화 학습 모델을 개발하여 더 효율적인 발전소 발전에 기여함.",
         technologies: ["강화 학습", "Python"],
         link: "#",
-        date: "2022년 10월 - 12월",
+        date: "Oct. 2022 - Dec. 2022",
         keyAchievements: [
           "강화 학습을 통해 발전소 연료 소비 최적화.",
           "운영 비용을 크게 줄이는 모델 구현.",
