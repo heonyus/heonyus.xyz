@@ -1,0 +1,140 @@
+\documentclass[lighthipster]{simplehipstercv}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage[margin=1cm, a4paper]{geometry}
+
+\newlength{\rightcolwidth}
+\newlength{\leftcolwidth}
+\setlength{\leftcolwidth}{0.23\textwidth}
+\setlength{\rightcolwidth}{0.75\textwidth}
+
+\title{JaeHeon Jeong CV}
+\author{JaeHeon Jeong}
+\date{August 2024}
+
+\pagestyle{empty}
+\begin{document}
+
+\thispagestyle{empty}
+
+\section*{Start}
+
+\simpleheader{headercolour}{JaeHeon}{Jeong}{B.S Student}{white}
+
+\subsection*{}
+\vspace{4em}
+
+\setlength{\columnsep}{1.5cm}
+\columnratio{0.23}[0.75]
+\begin{paracol}{2}
+\hbadness5000
+
+\footnotesize
+{\setasidefontcolour
+\flushright
+\begin{center}
+    \roundpic{profile.jpg} % Replace 'profile.jpg' with the actual profile image file name
+\end{center}
+
+\bg{cvgreen}{white}{About me}\\[0.5em]
+{\footnotesize
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.}
+\bigskip
+
+\bg{cvgreen}{white}{Personal} \\[0.5em]
+\textbf{Name:} JaeHeon Jeong \\
+\textbf{Nationality:} Korean \\
+\textbf{Birth Year:} 1999
+
+\bigskip
+
+\bg{cvgreen}{white}{Areas of Specialization} \\[0.5em]
+AI Research ~•~ MLOps ~•~ NLP
+
+\bigskip
+
+\bg{cvgreen}{white}{Languages}\\[0.5em]
+Korean (Native) ~•~ English (Fluent) ~•~ Japanese (Intermediate)
+
+\bigskip
+
+\bg{cvgreen}{white}{Contacts}\\[0.5em]
+\texttt{lhe339@naver.com} \\
+\texttt{lhe339@gmail.com} \\
+\texttt{+82) 01031357849} \\
+\texttt{https://www.heonyus.xyz/}
+
+\vspace{4em}
+}
+\switchcolumn
+
+\small
+\section*{Short Resumé}
+\begin{tabular}{r| p{0.5\textwidth}}
+    2024--Present & \textbf{Researcher at AI Innovation, Lingora, Korea} \newline MLOps Engineer \& AI Researcher, Lingora, Korea \\
+    2023--2023 & \textbf{Research Intern at AI Innovation, Tutoring, Korea} \newline Prompt Engineer \& AI Researcher, Tutoring, Korea \\
+    2022--2023 & \textbf{Research Intern at Computational Data Science Lab, Myongji University, Korea} \newline Research \& Engineering, Myongji University, Korea \\
+    2023--2024 & \textbf{Researcher at Operations Support Department, FOM Club, Myongji University, Korea} \newline President of a Club, Myongji University, Korea
+\end{tabular}
+
+\vspace{3em}
+
+\begin{minipage}[t]{0.35\textwidth}
+\section*{Degrees}
+\begin{tabular}{r p{0.6\textwidth}}
+    2024 & \textbf{B.S. in Industrial and Management Engineering} \newline Myongji University, Yongin, Korea \newline GPA: 3.8 / 4.5, Summa Cum Laude
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\section*{Programming Skills}
+\begin{tabular}{r @{\hspace{0.5em}}l}
+     Python &  \barrule{0.55}{0.5em}{cvpurple}\\
+     Pytorch &  \barrule{0.55}{0.5em}{cvpurple}\\
+     Tensorflow &  \barrule{0.35}{0.5em}{cvgreen}\\
+     AWS &  \barrule{0.50}{0.5em}{cvpurple}\\
+     Next.js & \barrule{0.25}{0.5em}{cvgreen}
+\end{tabular}
+\end{minipage}
+
+\vspace{3em}
+
+\section*{Research Experiences}
+\begin{tabular}{r| p{0.5\textwidth}}
+    2024--Present & \textbf{Researcher at AI Innovation, Lingora, Korea} \newline MLOps Engineer \& AI Researcher, Lingora, Korea \\
+    2023--2023 & \textbf{Research Intern at AI Innovation, Tutoring, Korea} \newline Prompt Engineer \& AI Researcher, Tutoring, Korea \\
+    2022--2023 & \textbf{Research Intern at Computational Data Science Lab, Myongji University, Korea} \newline Research \& Engineering, Myongji University, Korea \\
+    2023--2024 & \textbf{Researcher at Operations Support Department, FOM Club, Myongji University, Korea} \newline President of a Club, Myongji University, Korea
+\end{tabular}
+
+\vspace{3em}
+
+\section*{Projects}
+\begin{tabular}{r| p{0.5\textwidth}}
+    2023--2023 & \textbf{Entity Recognition Search Model Development \& LLMOps Engineering System} \newline Development \& Infrastructure Construction, Market Designers, Korea \\
+    2024--2024 & \textbf{Development of Open-end Chat Modifier Model} \newline Development \& Deployment, Market Designers, Korea \\
+    2023--2023 & \textbf{Travel Itinerary Scheduling Using Reinforcement Learning and NLP} \newline NLP Development, Myongji University, Korea \\
+    2022--2022 & \textbf{Development of Reinforcement Learning Model for Power Generation Fuel Consumption Characteristics Measurement and Combustion Optimization} \newline Experiment, Bistelligence, Korea \\
+    2023--2023 & \textbf{Development of Heterogeneous Domain Integrated Graph Neural Network for Topic Tomography} \newline Preprocessing, Developing, National Research Foundation of Korea
+\end{tabular}
+
+\section*{Projects (continued)}
+\begin{tabular}{r| p{0.5\textwidth}}
+    2023--2023 & \textbf{Development of National Assembly Bill Proposal System Using Existing Legislation} \newline Development \& Infrastructure Construction, National Assembly of South Korea, Korea \\
+    2023--2023 & \textbf{Development of DX-ASTI Demand-based Service Model Recommendation System} \newline Preprocessing, Developing, KISTI, Korea \\
+    2023--2023 & \textbf{Development of Personal Knowledge Model to Understand Learner's Persona} \newline Development \& Infrastructure Construction, Market Designers, Korea \\
+    2023--2023 & \textbf{Development of Dynamic Prompting that Changes System Messages Based on Textbook Topics} \newline Development, Market Designers, Korea \\
+    2023--2023 & \textbf{Development of Error Correction Model to Revise Learner's Incorrect Utterances} \newline Development \& Infrastructure Construction, Market Designers, Korea
+\end{tabular}
+
+\vfill{}
+
+\begin{minipage}[b]{\rightcolwidth}
+\begin{center}\fontfamily{\sfdefault}\selectfont \color{black!70}
+{\small JaeHeon Jeong \icon{\faEnvelopeO}{cvgreen}{} lhe339@naver.com \icon{\faMapMarker}{cvgreen}{} Korea \icon{\faPhone}{cvgreen}{} +82 01031357849 \newline\icon{\faAt}{cvgreen}{} \protect\url{https://www.heonyus.xyz/}
+}
+\end{center}
+\end{minipage}
+
+\end{paracol}
+
+\end{document}

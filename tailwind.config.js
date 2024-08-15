@@ -108,6 +108,7 @@ module.exports = {
 				'neon-green': '#00ff00',
 				'neon-yellow': '#ffff00',
 				'neon-purple': '#bf00ff',
+				'cvgreen': '#4CAF50', // CV에 사용할 녹색 추가
 			},
 			textShadow: {
 				'neon': '0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor',

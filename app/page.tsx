@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 const navigation = [
   { name: "Contact", href: "/contact" },
   { name: "Blog", href: "/blog" },
-  { name: "CV", href: "/CV.pdf", target: "_blank" },
+  { name: "CV", href: "/cv" },
 ];
 
 const Home: React.FC = () => {
@@ -92,17 +92,9 @@ const Home: React.FC = () => {
             JAY
           </h1>
           
-          <div className="text-center animate-fade-in px-4 max-w-lg">
+          <div className="text-center animate-fade-in px-4">
             <h2 className="text-sm sm:text-base md:text-lg lg:text-xl text-white">
-              I am exploring{" "}
-              <Link
-                target="_blank"
-                href="https://github.com/heonyus"
-                className="underline font-extrabold text-pink-100 duration-500 hover:text-purple-200"
-              >
-                AI
-              </Link>{" "}
-              for the essence of humanity and creating a more human-like something.
+              "Exploring human essence and creating Übermensch through AI."
             </h2>
           </div>
         </div>
