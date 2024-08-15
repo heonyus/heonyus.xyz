@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 
 const navigation = [
   { name: "Contact", href: "/contact" },
-  { name: "Blog", href: "/blog" },
   { name: "CV", href: "/cv" },
 ];
 
