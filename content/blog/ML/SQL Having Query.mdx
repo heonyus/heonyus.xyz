@@ -1,0 +1,38 @@
+---
+title: 'SQL Having Query'
+date: '2024-08-16'
+tags: ['SQL', 'Having', 'Query']
+category: 'SQL'
+excerpt: 'SQL의 Having 절에 대한 간단한 설명입니다.'
+coverImage: 'https://assets.datamation.com/uploads/2023/06/dm-top-database-challenges-696x457.png'
+description: 'SQL의 Having 절에 대한 간단한 설명입니다.'
+---
+
+# SQL의 Having
+
+회사에서 쿼리를 작성하다가 유저의 접속기록을 볼 수 있는 메타 정보 테이블에서 'user_id'가 중복되는 경우가 있어서 이유가 무엇일까 찾아보다가 having 절을 사용해 중복 데이터를 볼 수 있었습니다.
+
+## SQL 쿼리
+
+```sql
+SELECT user_id, COUNT(*) as row_count
+FROM user_meta
+GROUP BY user_id
+HAVING COUNT(*) > 1
+ORDER BY row_count DESC;
+```
+
+HAVING 절은 GROUP BY 절과 함께 사용되며, 그룹화된 결과를 필터링하는 용도로 사용됩니다.
+위의 쿼리는 'user_id'를 기준으로 그룹화한 다음, 그룹화된 결과에서 개수가 1보다 큰 결과만 보여주는 쿼리입니다.
+
+## 실행 결과
+
+실행 결과로는 다음과 같을 수 있습니다.
+
+```
+user_id | row_count
+-----------------
+user_1 | 2
+user_2 | 3
+user_3 | 4
+```
